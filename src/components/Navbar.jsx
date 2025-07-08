@@ -11,7 +11,7 @@ function Navbar() {
   const handleDownloadResume = () => {
     // TODO: Replace with actual resume download link
     const resumeUrl =
-      "https://drive.google.com/file/d/11JXcmVCmltYlmSgWKc2yLX2eNviYeYkQ/view?usp=sharing";
+      "https://drive.google.com/file/d/16AVUNqId8zG55rwtr8qwps_0ZKFvGVq8/view?usp=sharing";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "Resume.pdf";
@@ -48,14 +48,14 @@ function Navbar() {
         >
           <FaGithub size={24} sm:size={28} lg:size={32} />
         </a>
-        <a
+        {/* <a
           href="https://www.instagram.com/your-username"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-blue-300 transition-colors duration-300"
         >
           <FaInstagram size={24} sm:size={28} lg:size={32} />
-        </a>
+        </a> */}
         <button
           onClick={handleDownloadResume}
           className="flex items-center bg-blue-800 hover:bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-base sm:text-lg transition-colors duration-300"
