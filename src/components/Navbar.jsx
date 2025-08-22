@@ -11,7 +11,7 @@ function Navbar() {
   const handleDownloadResume = () => {
     // TODO: Replace with actual resume download link
     const resumeUrl =
-      "https://drive.google.com/file/d/17h8LS4Sz5Gpemeh3BcdOjC7u4mGfBBH5/view?usp=sharing";
+      "https://drive.google.com/file/d/1SvozP5JOR-8MyjyAqNS0EcI9wWGH8L_U/view?usp=sharing";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "Resume.pdf";
@@ -69,4 +69,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
 
