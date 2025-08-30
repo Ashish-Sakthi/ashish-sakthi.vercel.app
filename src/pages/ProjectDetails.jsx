@@ -1,8 +1,7 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { FaGamepad, FaCode, FaUnity, FaDesktop } from "react-icons/fa";
 
-// Import project images (keeping for fallback)
 import img1 from "../assets/img_third.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.png";
@@ -11,39 +10,38 @@ import img_rpg from "../assets/img_rpg.jpg";
 
 const projectDetails = {
   img_rpg: {
-    title: "Top-Down RPG with Gameplay Ability System",
+    title: "Top-Down RPG with Gameplay Ability System",
     icon: FaDesktop,
     image: img_rpg,
     videoUrl:
-      "https://www.youtube.com/embed/videoseries?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD", // Updated to embed playlist
+      "https://www.youtube.com/embed/videoseries?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD",
     technologies: [
-      "Unreal Engine",
+      "Unreal Engine 5",
       "C++",
       "Gameplay Ability System",
       "Blueprints",
-      "AI",
+      "AI (EQS, Behavior Trees)",
     ],
     description:
-      "Created innovative gameplay systems leveraging advanced physics simulations and interactions.",
+      "A scalable RPG framework built with Unreal Engine 5 using GAS, featuring combat, progression, and modular systems.",
     fullDescription: `
-      The Physics-Based Gameplay Mechanics project explores advanced physics interactions to create unique and engaging gameplay experiences.
-      Developed in Godot, the project demonstrates sophisticated use of physics engines in game design.
-
-      Key Features:
-      - Complex object interaction systems
-      - Dynamic environmental physics
-      - Realistic material and collision responses
-      - Innovative gameplay mechanics driven by physics
+      A scalable RPG prototype built in Unreal Engine 5 (C++) using the Gameplay Ability System (GAS).
+      The game includes core RPG elements such as attributes, spells, XP/level-ups, and advanced enemy AI with EQS and Behavior Trees.
+      Modular UI with HUD elements, spell menus, XP bars, and clean architecture (SOLID principles) makes the system expandable. 
+      The project integrates Niagara VFX, real-time combat feedback, and experiments with multiplayer replication for a polished RPG framework.
     `,
     challenges: [
-      "Creating realistic and predictable physics interactions",
-      "Balancing gameplay mechanics with physical accuracy",
-      "Optimizing performance of complex physics simulations",
+      "Implementing GAS cleanly with attributes and effects",
+      "Designing enemy AI with Behavior Trees and EQS",
+      "Managing multiplayer replication with async tasks",
+      "Integrating VFX, sound notifies, and animation states into combat",
     ],
     learnings: [
-      "Advanced physics engine integration",
-      "Gameplay design through physics",
-      "Performance optimization techniques",
+      "Strong understanding of GAS framework",
+      "AAA-style architecture and SOLID principles in Unreal",
+      "UI design with modular HUD systems",
+      "VFX and animation-driven combat feedback",
+      "Replication and multiplayer considerations in GAS",
     ],
   },
   img1: {
@@ -51,30 +49,27 @@ const projectDetails = {
     icon: FaDesktop,
     image: img1,
     videoUrl:
-      "https://www.youtube.com/embed/pj6ksFlDoEA?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD", // Correct YouTube embed URL
-    technologies: ["Unreal Engine", "C++"],
+      "https://www.youtube.com/embed/pj6ksFlDoEA?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD",
+    technologies: ["Unreal Engine 5", "C++", "AI", "Behavior Trees"],
     description:
-      "Created innovative gameplay systems leveraging advanced physics simulations and interactions.",
+      "A third-person action shooter featuring responsive combat, AI behaviors, and modular health systems.",
     fullDescription: `
-      This was a hands-on project to implement enemy AI behavior in Unreal Engine 5 using C++ only—no Blueprints. I created a full Behavior Tree system where the AI detects, chases, and shoots the player, investigates last known positions, and returns to patrol if the target is lost. All behavior logic was written from scratch using custom task nodes, services, and an AI controller in C++ to get a deeper grasp of Unreal’s AI architecture.
-
-
- 
+      A third-person shooter prototype built in Unreal Engine 5 entirely with C++.
+      Features include responsive character movement, aiming, and shooting mechanics, supported by robust enemy AI.
+      AI behavior was implemented using Behavior Trees and Blackboards, with logic for detecting, chasing, shooting, 
+      investigating last known positions, and returning to patrol when the target is lost.
     `,
     challenges: [
-      "Understanding the flow between the Behavior Tree, Blackboard, and AIController",
-
-      "Setting up sight detection manually in C++ using perception and gameplay tags",
-      "Debugging AI logic without visual Blueprint cues",
-      "Managing timing and looping behavior like delayed shooting in C++",
-      "Ensuring smooth transitions between states like chasing → losing sight → investigating",
+      "Understanding Behavior Trees, Blackboards, and AIController flow",
+      "Manually coding sight detection and perception in C++",
+      "Debugging AI logic without Blueprint visuals",
+      "Managing transitions between states like chase, shoot, investigate, patrol",
     ],
     learnings: [
-      "Solidified knowledge of Unreal’s AI Behavior Tree system and Blackboard usage",
-      "Gained confidence in building modular gameplay systems using C++",
-      "Understood how AIController, Pawn sensing, and services/tasks interact",
-      "Learned best practices for managing AI state transitions and task flow in C++",
-      "Improved debugging and problem-solving skills within complex logic trees",
+      "Solid understanding of Unreal’s AI framework (BT + BB + AIController)",
+      "Confidence in building modular gameplay systems with C++",
+      "Best practices for AI state transitions",
+      "Improved debugging skills in complex C++ AI logic",
     ],
   },
   img2: {
@@ -82,90 +77,84 @@ const projectDetails = {
     icon: FaCode,
     image: img2,
     videoUrl:
-      "https://www.youtube.com/embed/P9FuPjpQez0?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD", // Correct YouTube embed URL
-    technologies: ["Unreal Engine", "C++"],
+      "https://www.youtube.com/embed/P9FuPjpQez0?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD",
+    technologies: ["Unreal Engine 5", "C++"],
     description:
-      "Developed a flexible AI decision-making framework for complex NPC interactions and game logic.",
+      "A Fall Guys–style obstacle course platformer with dynamic challenges and precision-based gameplay.",
     fullDescription: `
-      Obstacle Assault is a fast-paced, single-player platformer game inspired by the chaos and excitement of Fall Guys. Built entirely in Unreal Engine 5 using C++, the game challenges players to navigate a dynamic course filled with moving platforms, rotating obstacles, timed traps, and precision jumps. Each level is designed to test reflexes, timing, and spatial awareness, with responsive controls and tight gameplay loops that encourage mastery and replayability.
-
-
-     
+      Obstacle Overrun is a fast-paced, single-player obstacle course inspired by Fall Guys.
+      Built with Unreal Engine 5 in C++, it challenges players to survive moving platforms, rotating hazards, traps, 
+      and precision jumps. Each level ramps up difficulty to test reflexes, timing, and strategy while maintaining smooth controls.
     `,
     challenges: [
-      "Implementing precise player movement using Unreal C++ without Blueprints",
-
-      "Syncing moving platforms, rotating obstacles, and traps with accurate timing",
-
-      "Handling collision edge cases for fast-moving objects",
-
-      "Creating smooth level progression and polished camera transitions",
-
-      "Structuring clean, modular, and optimized Unreal C++ code",
+      "Precise player movement in C++ without Blueprints",
+      "Syncing moving platforms, rotating bars, and timed traps",
+      "Collision edge cases for fast-moving obstacles",
+      "Smooth camera transitions with dynamic levels",
+      "Maintaining clean and modular C++ code",
     ],
     learnings: [
-      "Strong foundation in Unreal C++ and gameplay class architecture",
-      "Built responsive gameplay mechanics like timed traps and obstacle behavior",
-      "Improved skills in level design, pacing, and player experience",
-      "Gained experience in debugging and testing C++-driven systems",
-      "Learned performance-conscious coding practices in a real-time game environment",
+      "Unreal C++ class architecture for gameplay",
+      "Designing responsive obstacle mechanics",
+      "Level pacing and difficulty balance",
+      "Debugging and testing gameplay logic in C++",
+      "Performance-conscious programming for real-time systems",
     ],
   },
   img3: {
-    title: "Tank Shooter",
+    title: "Toon Tanks",
     icon: FaUnity,
     image: img3,
-    videoUrl: "https://www.youtube.com/embed/SPogCMJ0Pag?si=hOVAny3mqpavIfou", // Updated with actual project video
-    technologies: ["Unreal Engine", "C++"],
+    videoUrl: "https://www.youtube.com/embed/SPogCMJ0Pag?si=hOVAny3mqpavIfou",
+    technologies: ["Unreal Engine 5", "C++"],
     description:
-      "Toon Tanks is a stylized top-down arcade shooter built using Unreal Engine 5 and C++. The player controls a cartoon-style tank that must eliminate waves of enemy turrets within a level. Each turret has its own health, firing behavior, and rotation logic, creating a fun and reactive battlefield. With its vibrant art style and action-packed gameplay, Toon Tanks is a great introduction to core Unreal gameplay programming concepts.",
+      "A stylized top-down tank shooter featuring player-controlled tanks, turret AI, and projectile combat.",
     fullDescription: `
-      Toon Tanks is a stylized top-down arcade shooter built using Unreal Engine 5 and C++. The player controls a cartoon-style tank that must eliminate waves of enemy turrets within a level. Each turret has its own health, firing behavior, and rotation logic, creating a fun and reactive battlefield. With its vibrant art style and action-packed gameplay, Toon Tanks is a great introduction to core Unreal gameplay programming concepts.
+      Toon Tanks is a stylized arcade shooter built in Unreal Engine 5 with C++. 
+      The player controls a cartoon-style tank tasked with eliminating enemy turrets. 
+      Each turret features health, auto-firing behavior, and player-tracking logic, creating a reactive battlefield.
+      The project focuses on AI, projectiles, modular pawn systems, and win/lose game state flow.
     `,
     challenges: [
-      "Creating a modular pawn system for player and turret tanks",
-      "Implementing turret AI logic using timers and player tracking",
-      "Managing projectile spawning and collision events in C++",
-      "Handling win/lose game states and level flow",
-      "Structuring clean code for reusability and scalability",
+      "Creating modular pawn classes for player and turret tanks",
+      "AI logic for turrets with timers and player tracking",
+      "Projectile spawning, collision, and damage application",
+      "Managing win/lose game flow and transitions",
     ],
     learnings: [
-      "Modular Pawn and Component Design: Architected reusable pawn classes for both player and AI-controlled tanks, promoting code reuse and scalability.",
-      "AI Programming with Timers and Targeting: Implemented turret AI logic using timers for firing and player tracking, deepening understanding of Unreal’s actor/component system.",
-      "Projectile and Collision Handling: Developed robust systems for spawning, moving, and detecting collisions with projectiles, including damage application and destruction events.",
-      "Game State and Flow Management: Managed win/lose conditions, level transitions, and game start logic using Unreal’s GameMode and GameState classes.",
-      "Blueprint/C++ Integration: Practiced integrating C++ logic with Blueprint for rapid iteration and designer-friendly workflows.",
+      "Reusable pawn and component-based design",
+      "Timer-based AI logic and perception",
+      "Projectile/collision systems in C++",
+      "GameMode and GameState management",
+      "Efficient integration of C++ with Blueprint for iteration",
     ],
   },
-  // img4: {
-  //   title: "Interactive Skill Enhancer For Children With ASD and ID",
-  //   icon: FaGamepad,
-  //   image: img4,
-  //   videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual project video
-  //   technologies: ["Unity", "AR/VR"],
-  //   description:
-  //     "An advanced terrain generation system with dynamic biome creation and realistic landscape rendering.",
-  //   fullDescription: `
-  //     The Procedural World Generator is a cutting-edge terrain generation system developed in Unity, showcasing advanced procedural generation techniques.
-  //     The project leverages sophisticated algorithms to create dynamic, realistic landscapes with unique biome distributions.
-
-  //     Key Features:
-  //     - Dynamic terrain generation using Perlin noise and fractal algorithms
-  //     - Realistic biome creation with smooth transitions
-  //     - Adaptive terrain detail based on player proximity
-  //     - Optimized rendering techniques for large-scale landscapes
-  //   `,
-  //   challenges: [
-  //     "Implementing efficient noise generation algorithms",
-  //     "Creating natural-looking terrain transitions",
-  //     "Optimizing performance for large-scale worlds",
-  //   ],
-  //   learnings: [
-  //     "Advanced procedural generation techniques",
-  //     "Noise algorithm implementation",
-  //     "Terrain rendering optimization",
-  //   ],
-  // },
+  img4: {
+    title: "Interactive Skill Enhancer for Children with ASD and ID (VR)",
+    icon: FaGamepad,
+    image: img4,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual video
+    technologies: ["Unity", "C#", "VR"],
+    description:
+      "A VR-based assistive tool designed to improve learning and engagement for children with ASD and ID.",
+    fullDescription: `
+      Built as part of the Smart India Hackathon 2024 (Finalist), this VR project was designed as an assistive tool 
+      for children with Autism Spectrum Disorder and Intellectual Disabilities. 
+      The application created interactive environments that enhanced communication, motor, and cognitive skills 
+      through gamified VR-based activities. 
+      The project was recognized for its innovation and potential social impact.
+    `,
+    challenges: [
+      "Designing intuitive VR interactions for children",
+      "Ensuring accessibility and engagement in learning activities",
+      "Optimizing performance for smooth VR experience",
+    ],
+    learnings: [
+      "Practical VR development in Unity",
+      "Designing for accessibility and inclusivity",
+      "Cross-functional teamwork in hackathon environment",
+    ],
+  },
 };
 
 function ProjectDetails() {
@@ -184,10 +173,9 @@ function ProjectDetails() {
 
   return (
     <div className="min-h-screen bg-black font-montserrat text-white">
-      {/* Project Details Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-24 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-          {/* Project Video */}
+          {/* Video */}
           <div className="w-full order-1 md:order-none">
             <div className="rounded-lg overflow-hidden shadow-2xl aspect-video">
               <iframe
@@ -196,30 +184,30 @@ function ProjectDetails() {
                 src={project.videoUrl}
                 title={`${project.title} Video`}
                 frameBorder="0"
-                allow="autoplay; accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
           </div>
 
-          {/* Project Information */}
+          {/* Info */}
           <div className="order-2 md:order-none px-4 sm:px-8 lg:px-12">
             <div className="flex flex-col sm:flex-row items-center mb-8 lg:mb-12">
               <ProjectIcon
                 className="text-blue-500 mb-4 sm:mr-6 sm:mb-0"
                 size={40}
-                md:size={48}
               />
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center sm:text-left">
                 {project.title}
               </h1>
             </div>
 
+            {/* Tech */}
             <div className="mb-8 lg:mb-12">
-              <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-center sm:text-left">
+              <h2 className="text-2xl lg:text-3xl font-semibold mb-4">
                 Technologies
               </h2>
-              <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+              <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech, index) => (
                   <span
                     key={index}
@@ -231,33 +219,35 @@ function ProjectDetails() {
               </div>
             </div>
 
+            {/* Description */}
             <div className="mb-8 lg:mb-12">
-              <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-center sm:text-left">
+              <h2 className="text-2xl lg:text-3xl font-semibold mb-4">
                 Description
               </h2>
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center sm:text-left">
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
                 {project.fullDescription}
               </p>
             </div>
           </div>
         </div>
-        {/* Challenges & Learnings Section - Responsive Two Columns */}
+
+        {/* Challenges / Learnings */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 shadow-lg">
-            <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-center sm:text-left">
+            <h2 className="text-2xl lg:text-3xl font-semibold mb-4">
               Challenges
             </h2>
-            <ul className="list-disc list-inside text-gray-300 text-base md:text-lg space-y-2">
+            <ul className="list-disc list-inside text-gray-300 space-y-2">
               {project.challenges.map((challenge, index) => (
                 <li key={index}>{challenge}</li>
               ))}
             </ul>
           </div>
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 shadow-lg">
-            <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-center sm:text-left">
+            <h2 className="text-2xl lg:text-3xl font-semibold mb-4">
               Learnings
             </h2>
-            <ul className="list-disc list-inside text-gray-300 text-base md:text-lg space-y-2">
+            <ul className="list-disc list-inside text-gray-300 space-y-2">
               {project.learnings.map((learning, index) => (
                 <li key={index}>{learning}</li>
               ))}
