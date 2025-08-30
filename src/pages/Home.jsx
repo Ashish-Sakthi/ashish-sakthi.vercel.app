@@ -6,7 +6,6 @@ import { FaGamepad, FaCode, FaUnity, FaDesktop } from "react-icons/fa";
 import img1 from "../assets/img_third.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.png";
-import img4 from "../assets/img_asd.jpg";
 import img from "../assets/profile.jpeg";
 import img_rpg from "../assets/img_rpg.jpg";
 
@@ -33,7 +32,6 @@ function ProjectCard({
             <Icon
               className="text-blue-500 mb-2 sm:mr-4 sm:mb-0"
               size={32}
-              md:size={40}
             />
             <h3 className="text-xl md:text-2xl font-semibold text-white text-center sm:text-left">
               {title}
@@ -63,13 +61,13 @@ function Home() {
     {
       id: "img_rpg",
       icon: FaGamepad,
-      title: "Top-Down RPG with Gameplay Ability System",
+      title: "Top-Down RPG with Gameplay Ability System",
       description:
-        "Created innovative gameplay systems leveraging advanced physics simulations and interactions.",
+        "An Unreal Engine 5 RPG prototype built with GAS, featuring attributes, spells, XP, and advanced enemy AI using Behavior Trees and EQS.",
       technologies: [
         "Unreal Engine",
         "C++",
-        "Gameplay Ability System",
+        "GAS",
         "Blueprints",
         "AI",
       ],
@@ -77,10 +75,10 @@ function Home() {
     },
     {
       id: "img1",
-      icon: FaGamepad,
+      icon: FaDesktop,
       title: "Third Person Shooter",
       description:
-        "Created innovative gameplay systems leveraging advanced physics simulations and interactions.",
+        "A C++-only third-person shooter with enemy AI behaviors, including chase, investigate, patrol, and combat using Behavior Trees.",
       technologies: ["Unreal Engine", "C++", "AI"],
       image: img1,
     },
@@ -89,40 +87,31 @@ function Home() {
       icon: FaCode,
       title: "Obstacle Overrun",
       description:
-        "Developed a flexible AI decision-making framework for complex NPC interactions and game logic.",
+        "A Fall Guys–inspired obstacle platformer built in Unreal C++, with moving platforms, rotating hazards, and precision-based challenges.",
       technologies: ["Unreal Engine", "C++"],
       image: img2,
     },
     {
       id: "img3",
       icon: FaUnity,
-      title: "Tank Shooter",
+      title: "Toon Tanks",
       description:
-        "Implemented robust networking and synchronization for a competitive multiplayer game prototype.",
+        "A stylized top-down tank shooter featuring modular pawn systems, turret AI with timers, projectile combat, and win/lose game flow.",
       technologies: ["Unreal Engine", "C++"],
       image: img3,
     },
-    // {
-    //   id: "img4",
-    //   icon: FaDesktop,
-    //   title: "Interactive Skill Enhancer For Children With ASD and ID",
-    //   description:
-    //     "An advanced terrain generation system with dynamic biome creation and realistic landscape rendering.",
-
-    //   technologies: ["Unity", "AR/VR"],
-    //   image: img4,
-    // },
   ];
 
   return (
     <div className="min-h-screen bg-black font-montserrat text-white flex flex-col">
+      {/* Intro Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-24 py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between space-y-8 lg:space-y-0 lg:space-x-16">
           <div className="flex-shrink-0 w-full lg:w-1/3 flex justify-center">
             <div className="w-64 h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden border-8 border-gray-800 shadow-2xl">
               <img
                 src={img}
-                alt="Ashish Sakthi "
+                alt="Ashish Sakthi"
                 className="w-full h-full object-cover object-center"
               />
             </div>
@@ -132,12 +121,13 @@ function Home() {
           <div className="flex-grow lg:w-2/3 text-center lg:text-left px-4 sm:px-8 lg:px-12">
             <div className="text-base sm:text-lg lg:text-xl text-gray-300 space-y-4">
               <p className="leading-relaxed">
-                Enthusiastic and motivated Game Programmer with expertise in
-                Unreal Engine C++ and AR/VR development using Unity. Skilled in
-                designing immersive gameplay, implementing collision detection,
-                and creating adaptive AI behaviors. Demonstrates strong
-                problem-solving abilities and effective team collaboration to
-                deliver innovative gaming experiences.
+                I’m Ashish Sakthi D, a passionate Gameplay Programmer specializing in Unreal Engine 5 with C++. 
+                I love building engaging gameplay mechanics, responsive combat systems, and polished character interactions. 
+                My work focuses on blending strong technical foundations with creative design to deliver immersive player experiences.
+              </p>
+              <p className="leading-relaxed">
+                Beyond Unreal, I also explore Unity and AR/VR development, constantly experimenting with mechanics, AI behaviors, and animation workflows. 
+                I enjoy problem-solving, tackling technical challenges, and turning ideas into interactive, fun, and high-quality game experiences.
               </p>
             </div>
           </div>
@@ -174,21 +164,13 @@ function Home() {
           </h2>
           <div className="space-y-4">
             <p className="text-base lg:text-lg text-gray-300 leading-relaxed text-center lg:text-left">
-              I'm Ashish Sakthi D, a passionate Unreal Engine gameplay
-              programmer who loves creating engaging, responsive, and immersive
-              game experiences. I specialize in Unreal Engine 5 with C++,
-              focusing on character mechanics, combat systems, and polished
-              animation workflows. Game development isn't just a skill for me,
-              it's something I truly enjoy and constantly strive to grow in with
-              every project I build.
+              I’m a Gameplay Programmer who thrives on building fun and interactive gameplay systems. 
+              My focus lies in Unreal Engine C++ development, creating character mechanics, combat frameworks, 
+              and game logic that feel both responsive and polished.
             </p>
             <p className="text-base lg:text-lg text-gray-300 leading-relaxed text-center lg:text-left">
-              I describe myself as a problem solver who enjoys tackling
-              challenges and constantly refining my skills. I take pride in
-              designing interactive environments, adaptive AI behaviors, and
-              engaging game mechanics that enhance player experience. My
-              expertise includes C++, C#, Unreal Engine, Unity, and AR/VR
-              development, along with strong analytical thinking and teamwork.
+              Skilled in Unreal Engine, C++, C#, Unity, and AR/VR development, I aim to design gameplay that balances creativity and technical excellence. 
+              Every project is an opportunity to push boundaries and refine my craft in delivering immersive gaming experiences.
             </p>
           </div>
         </div>
