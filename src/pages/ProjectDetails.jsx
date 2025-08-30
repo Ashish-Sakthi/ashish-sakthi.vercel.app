@@ -9,7 +9,8 @@ import img4 from "../assets/img_asd.jpg";
 import img_rpg from "../assets/img_rpg.jpg";
 
 const projectDetails = {
-  // --- same projectDetails object you already had ---
+  // same project details as before...
+  // (no changes needed except UI)
 };
 
 function ProjectDetails() {
@@ -27,12 +28,12 @@ function ProjectDetails() {
   const ProjectIcon = project.icon;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black font-montserrat text-white">
+    <div className="min-h-screen bg-animated font-montserrat text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-24 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
           {/* Video */}
           <div className="w-full order-1 md:order-none">
-            <div className="rounded-xl overflow-hidden shadow-[0_0_30px_rgba(0,0,255,0.2)] aspect-video bg-white/10 backdrop-blur-lg border border-white/20">
+            <div className="rounded-xl overflow-hidden shadow-2xl aspect-video bg-white/10 backdrop-blur-md border border-white/10">
               <iframe
                 width="100%"
                 height="100%"
@@ -46,7 +47,7 @@ function ProjectDetails() {
           </div>
 
           {/* Info */}
-          <div className="order-2 md:order-none px-4 sm:px-8 lg:px-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-lg p-6">
+          <div className="order-2 md:order-none px-4 sm:px-8 lg:px-12">
             <div className="flex flex-col sm:flex-row items-center mb-8 lg:mb-12">
               <ProjectIcon
                 className="text-blue-400 mb-4 sm:mr-6 sm:mb-0"
@@ -59,14 +60,14 @@ function ProjectDetails() {
 
             {/* Tech */}
             <div className="mb-8 lg:mb-12">
-              <h2 className="text-2xl lg:text-3xl font-semibold mb-4">
+              <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-white">
                 Technologies
               </h2>
               <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech, index) => (
                   <span
                     key={index}
-                    className="bg-blue-900/50 backdrop-blur-sm text-blue-300 px-3 py-1.5 rounded-full text-sm md:text-base border border-blue-400/20"
+                    className="bg-blue-900/40 border border-blue-400/30 text-blue-200 px-3 py-1.5 rounded-full text-sm md:text-base backdrop-blur-sm"
                   >
                     {tech}
                   </span>
@@ -76,10 +77,10 @@ function ProjectDetails() {
 
             {/* Description */}
             <div className="mb-8 lg:mb-12">
-              <h2 className="text-2xl lg:text-3xl font-semibold mb-4">
+              <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-white">
                 Description
               </h2>
-              <p className="text-base md:text-lg text-gray-200 leading-relaxed whitespace-pre-line">
+              <p className="text-base md:text-lg text-gray-200 leading-relaxed bg-white/10 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow">
                 {project.fullDescription}
               </p>
             </div>
@@ -88,8 +89,8 @@ function ProjectDetails() {
 
         {/* Challenges / Learnings */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 shadow-xl hover:shadow-blue-500/20 transition">
-            <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-blue-300">
+          <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-blue-500/20 transition">
+            <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-white">
               Challenges
             </h2>
             <ul className="list-disc list-inside text-gray-200 space-y-2">
@@ -98,8 +99,8 @@ function ProjectDetails() {
               ))}
             </ul>
           </div>
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 shadow-xl hover:shadow-purple-500/20 transition">
-            <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-purple-300">
+          <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-purple-500/20 transition">
+            <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-white">
               Learnings
             </h2>
             <ul className="list-disc list-inside text-gray-200 space-y-2">
