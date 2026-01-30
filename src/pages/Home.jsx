@@ -165,13 +165,15 @@ function Home() {
           </h2>
           <div className="space-y-4">
             <p className="text-base lg:text-lg text-gray-300 leading-relaxed text-center lg:text-left">
-              I’m a Gameplay Programmer who thrives on building fun and interactive gameplay systems. 
-              My focus lies in Unreal Engine C++ development, creating character mechanics, combat frameworks, 
-              and game logic that feel both responsive and polished.
+              I am a Gameplay Systems Programmer specializing in Unreal Engine 5 and C++. 
+              I architect production-ready gameplay frameworks—from advanced Gameplay Ability System (GAS) 
+              implementations to complex combat logic—designed to be both scalable and highly responsive.
             </p>
             <p className="text-base lg:text-lg text-gray-300 leading-relaxed text-center lg:text-left">
-              Skilled in Unreal Engine, C++, C#, Unity, and AR/VR development, I aim to design gameplay that balances creativity and technical excellence. 
-              Every project is an opportunity to push boundaries and refine my craft in delivering immersive gaming experiences.
+              Driven by SOLID principles and decoupled design, I bridge the gap between technical 
+              engineering and designer-friendly workflows. Whether architecting non-linear 
+              quest systems or integrating custom hardware via Serial Communication, I focus on 
+              delivering immersive, AAA-quality experiences.
             </p>
           </div>
         </div>
@@ -181,4 +183,5 @@ function Home() {
 }
 
 export default Home;
+
 
