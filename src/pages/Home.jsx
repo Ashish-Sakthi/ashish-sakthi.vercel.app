@@ -121,13 +121,14 @@ function Home() {
           <div className="flex-grow lg:w-2/3 text-center lg:text-left px-4 sm:px-8 lg:px-12">
             <div className="text-base sm:text-lg lg:text-xl text-gray-300 space-y-4">
               <p className="leading-relaxed">
-                I’m Ashish Sakthi D, a passionate Gameplay Programmer specializing in Unreal Engine 5 with C++. 
-                I love building engaging gameplay mechanics, responsive combat systems, and polished character interactions. 
-                My work focuses on blending strong technical foundations with creative design to deliver immersive player experiences.
+                I’m Ashish Sakthi D, As an Unreal Engine Specialist, I architect scalable, production-ready systems using SOLID principles and decoupled design. 
+                I focus on ensuring complex mechanics like combat, mission frameworks, and AI remain performant while providing accessible iteration paths for designers. 
+                My goal is to build modular foundations that empower teams to deliver stable, AAA-quality gameplay at scale
               </p>
               <p className="leading-relaxed">
-                Beyond Unreal, I also explore Unity and AR/VR development, constantly experimenting with mechanics, AI behaviors, and animation workflows. 
-                I enjoy problem-solving, tackling technical challenges, and turning ideas into interactive, fun, and high-quality game experiences.
+                I specialize in the Gameplay Ability System (GAS), engineering custom AttributeSets, Execution Calculations, and optimized multiplayer replication. 
+                My experience includes building persistent, non-linear quest systems using Unreal Subsystems and Gameplay Tags, alongside adaptive AI developed with Behavior Trees and EQS. 
+                I thrive at bridging sophisticated C++ engineering with tactical, responsive player experiences.
               </p>
             </div>
           </div>
@@ -180,3 +181,4 @@ function Home() {
 }
 
 export default Home;
+
