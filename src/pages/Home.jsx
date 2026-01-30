@@ -159,12 +159,13 @@ function Home() {
 
       {/* Footer Section */}
       <footer className="bg-[#1a2b4a] text-white py-12 lg:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-24 flex flex-col items-center lg:items-start">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-blue-400">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-24 flex flex-col items-center text-center">
+          
+          <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-blue-400">
             Hi, I'm Ashish Sakthi D
           </h2>
           
-          <div className="flex flex-wrap justify-center lg:justify-start gap-8">
+          <div className="flex flex-wrap justify-center gap-8 lg:gap-12">
             <a 
               href="https://linkedin.com/in/iamashishsakthi" 
               target="_blank" 
@@ -189,7 +190,7 @@ function Home() {
             </a>
           </div>
           
-          <p className="text-sm text-gray-500 mt-8">
+          <p className="text-sm text-gray-500 mt-10">
             © 2026 Ashish Sakthi D. Built with Unreal Engine 5 & C++.
           </p>
         </div>
@@ -199,6 +200,7 @@ function Home() {
 }
 
 export default Home;
+
 
 
 
