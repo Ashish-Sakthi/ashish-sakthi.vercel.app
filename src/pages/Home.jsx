@@ -162,7 +162,7 @@ function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-24 flex flex-col items-center text-center">
           
           <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-blue-400">
-            Hi, I'm Ashish Sakthi D
+            Contact Me
           </h2>
           
           <div className="flex flex-wrap justify-center gap-8 lg:gap-12">
@@ -191,7 +191,7 @@ function Home() {
           </div>
           
           <p className="text-sm text-gray-500 mt-10">
-            © 2026 Ashish Sakthi D. Built with Unreal Engine 5 & C++.
+            © 2026 Ashish Sakthi D.
           </p>
         </div>
       </footer>
@@ -200,6 +200,7 @@ function Home() {
 }
 
 export default Home;
+
 
 
 
