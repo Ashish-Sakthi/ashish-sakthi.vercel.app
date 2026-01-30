@@ -159,23 +159,39 @@ function Home() {
 
       {/* Footer Section */}
       <footer className="bg-[#1a2b4a] text-white py-12 lg:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-24">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-blue-400 text-center lg:text-left">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-24 flex flex-col items-center lg:items-start">
+          <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-blue-400">
             Hi, I'm Ashish Sakthi D
           </h2>
-          <div className="space-y-4">
-            <p className="text-base lg:text-lg text-gray-300 leading-relaxed text-center lg:text-left">
-              I am a Gameplay Systems Programmer specializing in Unreal Engine 5 and C++. 
-              I architect production-ready gameplay frameworks—from advanced Gameplay Ability System (GAS) 
-              implementations to complex combat logic—designed to be both scalable and highly responsive.
-            </p>
-            <p className="text-base lg:text-lg text-gray-300 leading-relaxed text-center lg:text-left">
-              Driven by SOLID principles and decoupled design, I bridge the gap between technical 
-              engineering and designer-friendly workflows. Whether architecting non-linear 
-              quest systems or integrating custom hardware via Serial Communication, I focus on 
-              delivering immersive, AAA-quality experiences.
-            </p>
+          
+          <div className="flex flex-wrap justify-center lg:justify-start gap-8">
+            <a 
+              href="https://linkedin.com/in/iamashishsakthi" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-lg text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300"
+            >
+              LinkedIn
+            </a>
+            <a 
+              href="https://github.com/Ashish-Sakthi" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-lg text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300"
+            >
+              GitHub
+            </a>
+            <a 
+              href="mailto:iamashishsakthid@gmail.com" 
+              className="text-lg text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300"
+            >
+              Email
+            </a>
           </div>
+          
+          <p className="text-sm text-gray-500 mt-8">
+            © 2026 Ashish Sakthi D. Built with Unreal Engine 5 & C++.
+          </p>
         </div>
       </footer>
     </div>
@@ -183,5 +199,6 @@ function Home() {
 }
 
 export default Home;
+
 
 
