@@ -60,7 +60,7 @@ function ProjectCard({ project, index }) {
 export default function Projects() {
   return (
     <section id="projects" className="relative py-24 sm:py-28">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
         <div className="reveal text-center max-w-2xl mx-auto mb-16">
           <p className="section-eyebrow mb-4">// Portfolio</p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
@@ -72,7 +72,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-7 lg:gap-9 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-7 lg:gap-9 max-w-6xl mx-auto">
           {projects.map((p, i) => (
             <ProjectCard key={p.id} project={p} index={i} />
           ))}

@@ -25,7 +25,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative pt-24 sm:pt-28 pb-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
         <div className="reveal card-glow rounded-3xl overflow-hidden">
           {/* thin top accent hairline instead of a loud glow */}
           <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />

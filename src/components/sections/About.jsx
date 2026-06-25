@@ -3,7 +3,7 @@ import { profile, skills } from "../../data/portfolio";
 export default function About() {
   return (
     <section id="about" className="relative py-24 sm:py-28">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
         <div className="grid lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-16 items-center">
           {/* Portrait */}
           <div className="reveal relative mx-auto lg:mx-0 w-72 sm:w-96 lg:w-[28rem]">

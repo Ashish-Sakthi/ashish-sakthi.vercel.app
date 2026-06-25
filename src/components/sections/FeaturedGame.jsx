@@ -8,7 +8,7 @@ export default function FeaturedGame() {
 
   return (
     <section id="featured" className="relative py-24 sm:py-28">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
         <div className="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <div>
             <p className="section-eyebrow mb-4">// Now Building</p>
@@ -21,7 +21,7 @@ export default function FeaturedGame() {
           </div>
         </div>
 
-        <div className="reveal card-glow rounded-3xl overflow-hidden max-w-5xl mx-auto">
+        <div className="reveal card-glow rounded-3xl overflow-hidden max-w-6xl mx-auto">
           {/* Trailer — full width, true 16:9, never cropped */}
           <div className="relative w-full aspect-video bg-black">
             {playing ? (

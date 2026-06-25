@@ -13,7 +13,7 @@ export default function Hero() {
       id="top"
       className="relative min-h-[100svh] flex items-center pt-32 pb-20"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-10 items-center">
           {/* Left — copy */}
           <div className="max-w-2xl">

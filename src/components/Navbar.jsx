@@ -43,7 +43,7 @@ function Navbar() {
           : "bg-transparent py-5 border-b border-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
+      <nav className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16 flex items-center justify-between">
         {/* Brand */}
         <Link
           to="/"
@@ -116,7 +116,7 @@ function Navbar() {
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
+        <div className="mx-auto w-full max-w-[1680px] px-4 py-4 flex flex-col gap-1">
           {NAV_LINKS.map((l) => (
             <button
               key={l.to}

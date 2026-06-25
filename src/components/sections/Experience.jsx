@@ -4,7 +4,7 @@ import { experience } from "../../data/portfolio";
 export default function Experience() {
   return (
     <section id="experience" className="relative py-24 sm:py-28">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
         <div className="reveal text-center max-w-2xl mx-auto mb-16">
           <p className="section-eyebrow mb-4">// Journey</p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
@@ -15,7 +15,7 @@ export default function Experience() {
           </p>
         </div>
 
-        <div className="relative max-w-3xl mx-auto">
+        <div className="relative max-w-4xl mx-auto">
           {/* vertical line */}
           <div className="absolute left-4 sm:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-blue-400/60 via-cyan-400/40 to-transparent sm:-translate-x-1/2" />
 

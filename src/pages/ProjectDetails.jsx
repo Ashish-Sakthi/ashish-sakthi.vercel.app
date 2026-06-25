@@ -38,7 +38,7 @@ function ProjectDetails() {
 
   return (
     <div className="font-body min-h-screen pt-28 pb-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
         <Link
           to="/"
           state={{ scrollTo: "projects" }}
