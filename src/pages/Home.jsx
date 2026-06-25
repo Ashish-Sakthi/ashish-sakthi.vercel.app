@@ -1,207 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FaGamepad, FaCode, FaUnity, FaDesktop } from "react-icons/fa";
-
-// Import project images
-import img1 from "../assets/img_third.png";
-import img2 from "../assets/img2.png";
-import img3 from "../assets/img3.png";
-import img from "../assets/profile.jpeg";
-import img_rpg from "../assets/img_rpg.jpg";
-
-function ProjectCard({
-  icon: Icon,
-  title,
-  description,
-  technologies,
-  image,
-  projectId,
-}) {
-  return (
-    <Link to={`/projects/${projectId}`} className="block h-full">
-      <div className="bg-gray-900 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 overflow-hidden h-full flex flex-col">
-        <div className="h-48 md:h-64 overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-        <div className="p-4 md:p-6 flex-grow flex flex-col">
-          <div className="flex flex-col sm:flex-row items-center mb-3 md:mb-4">
-            <Icon
-              className="text-blue-500 mb-2 sm:mr-4 sm:mb-0"
-              size={32}
-            />
-            <h3 className="text-xl md:text-2xl font-semibold text-white text-center sm:text-left">
-              {title}
-            </h3>
-          </div>
-          <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 text-center sm:text-left flex-grow">
-            {description}
-          </p>
-          <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="bg-blue-900 text-blue-300 px-2 py-1 rounded-full text-xs md:text-sm"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-}
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Hero from "../components/sections/Hero";
+import About from "../components/sections/About";
+import Marquee from "../components/sections/Marquee";
+import Experience from "../components/sections/Experience";
+import FeaturedGame from "../components/sections/FeaturedGame";
+import Projects from "../components/sections/Projects";
+import Contact from "../components/sections/Contact";
+import useReveal from "../hooks/useReveal";
 
 function Home() {
-  const projects = [
-    {
-      id: "img_rpg",
-      icon: FaGamepad,
-      title: "Top-Down RPG with Gameplay Ability System",
-      description:
-        "An Unreal Engine 5 RPG prototype built with GAS, featuring attributes, spells, XP, and advanced enemy AI using Behavior Trees and EQS.",
-      technologies: [
-        "Unreal Engine",
-        "C++",
-        "GAS",
-        "Blueprints",
-        "AI",
-      ],
-      image: img_rpg,
-    },
-    {
-      id: "img1",
-      icon: FaDesktop,
-      title: "Third Person Shooter",
-      description:
-        "A C++-only third-person shooter with enemy AI behaviors, including chase, investigate, patrol, and combat using Behavior Trees.",
-      technologies: ["Unreal Engine", "C++", "AI"],
-      image: img1,
-    },
-    {
-      id: "img2",
-      icon: FaCode,
-      title: "Obstacle Overrun",
-      description:
-        "A Fall Guys–inspired obstacle platformer built in Unreal C++, with moving platforms, rotating hazards, and precision-based challenges.",
-      technologies: ["Unreal Engine", "C++"],
-      image: img2,
-    },
-    {
-      id: "img3",
-      icon: FaUnity,
-      title: "Toon Tanks",
-      description:
-        "A stylized top-down tank shooter featuring modular pawn systems, turret AI with timers, projectile combat, and win/lose game flow.",
-      technologies: ["Unreal Engine", "C++"],
-      image: img3,
-    },
-  ];
+  const location = useLocation();
+  useReveal([]);
+
+  // Honour cross-page anchor navigation (e.g. navbar links from detail page)
+  useEffect(() => {
+    const target = location.state?.scrollTo;
+    if (target) {
+      requestAnimationFrame(() => {
+        document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+  }, [location.state]);
 
   return (
-    <div className="min-h-screen bg-black font-montserrat text-white flex flex-col">
-      {/* Intro Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-24 py-16">
-        <div className="flex flex-col lg:flex-row items-center justify-between space-y-8 lg:space-y-0 lg:space-x-16">
-          <div className="flex-shrink-0 w-full lg:w-1/3 flex justify-center">
-            <div className="w-64 h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden border-8 border-gray-800 shadow-2xl">
-              <img
-                src={img}
-                alt="Ashish Sakthi"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-          </div>
-
-          {/* Description Section */}
-          <div className="flex-grow lg:w-2/3 text-center lg:text-left px-4 sm:px-8 lg:px-12">
-            <div className="text-base sm:text-lg lg:text-xl text-gray-300 space-y-4">
-              <p className="leading-relaxed">
-                I’m Ashish Sakthi D, As an Unreal Engine Specialist, I architect scalable, production-ready systems using SOLID principles and decoupled design. 
-                I focus on ensuring complex mechanics like combat, mission frameworks, and AI remain performant while providing accessible iteration paths for designers. 
-                My goal is to build modular foundations that empower teams to deliver stable, AAA-quality gameplay at scale
-              </p>
-              <p className="leading-relaxed">
-                I specialize in the Gameplay Ability System (GAS), engineering custom AttributeSets, Execution Calculations, and optimized multiplayer replication. 
-                My experience includes building persistent, non-linear quest systems using Unreal Subsystems and Gameplay Tags, alongside adaptive AI developed with Behavior Trees and EQS. 
-                I thrive at bridging sophisticated C++ engineering with tactical, responsive player experiences.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Game Programming Projects Section */}
-      <div className="bg-gray-950 py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-24">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-white mb-12 lg:mb-16">
-            Game Programming Projects
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                icon={project.icon}
-                title={project.title}
-                description={project.description}
-                technologies={project.technologies}
-                image={project.image}
-                projectId={project.id}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Footer Section */}
-      <footer className="bg-[#1a2b4a] text-white py-12 lg:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-24 flex flex-col items-center text-center">
-          
-          <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-blue-400">
-            Contact Me
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-8 lg:gap-12">
-            <a 
-              href="https://linkedin.com/in/iamashishsakthi" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-lg text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300"
-            >
-              LinkedIn
-            </a>
-            <a 
-              href="https://github.com/Ashish-Sakthi" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-lg text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300"
-            >
-              GitHub
-            </a>
-            <a 
-              href="mailto:iamashishsakthid@gmail.com" 
-              className="text-lg text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300"
-            >
-              Email
-            </a>
-          </div>
-          
-          <p className="text-sm text-gray-500 mt-10">
-            © 2026 Ashish Sakthi D.
-          </p>
-        </div>
-      </footer>
+    <div className="font-body">
+      <Hero />
+      <About />
+      <Marquee />
+      <Experience />
+      <FeaturedGame />
+      <Projects />
+      <Contact />
     </div>
   );
 }
 
 export default Home;
-
-
-
-
-
