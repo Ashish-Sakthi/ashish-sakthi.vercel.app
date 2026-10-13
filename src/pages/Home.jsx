@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Hero from "../components/sections/Hero";
 import About from "../components/sections/About";
-import Marquee from "../components/sections/Marquee";
 import Experience from "../components/sections/Experience";
 import FeaturedGame from "../components/sections/FeaturedGame";
 import Projects from "../components/sections/Projects";
@@ -24,15 +23,14 @@ function Home() {
   }, [location.state]);
 
   return (
-    <div className="font-body">
+    <>
       <Hero />
       <About />
-      <Marquee />
       <Experience />
       <FeaturedGame />
       <Projects />
       <Contact />
-    </div>
+    </>
   );
 }
 

@@ -3,11 +3,14 @@
 //  Sections that use placeholder data are marked with  ⚑ EDIT ME
 // ============================================================
 import {
-  FaGamepad,
-  FaCode,
-  FaUnity,
-  FaDesktop,
-} from "react-icons/fa";
+  Swords,
+  Crosshair,
+  Zap,
+  Target,
+  Briefcase,
+  Trophy,
+  BookOpen,
+} from "lucide-react";
 
 import profileImg from "../assets/profile.jpeg";
 import img1 from "../assets/img_third.png";
@@ -34,11 +37,12 @@ export const profile = {
     "I'm an Unreal Engine specialist who architects scalable, production-ready systems using SOLID principles and decoupled design. I keep complex mechanics — combat, mission frameworks, AI — performant while giving designers accessible iteration paths.",
     "I specialize in the Gameplay Ability System (GAS): custom AttributeSets, Execution Calculations, and optimized multiplayer replication. I love bridging sophisticated C++ engineering with tactical, responsive player experiences.",
   ],
-  stats: [
-    { value: "5+", label: "Shipped Prototypes" },
-    { value: "GAS", label: "Specialist" },
-    { value: "C++", label: "Core Stack" },
-    { value: "AI", label: "BT · EQS" },
+  // Shown in the hero console ("whoami" tab).
+  facts: [
+    ["Role", "Gameplay Programmer @ Aeos Games"],
+    ["Focus", "Combat · Enemy & boss AI · GAS · VFX / SFX"],
+    ["Stack", "Unreal Engine 5 · C++ · Blueprints"],
+    ["Platforms", "PlayStation 5 · PC"],
   ],
 };
 
@@ -59,6 +63,8 @@ export const skills = [
 // ---------- EXPERIENCE  ⚑ EDIT ME (replace with your real roles) ----------
 export const experience = [
   {
+    icon: Briefcase,
+    tone: "blue",
     role: "Gameplay Programmer",
     company: "Aeos Games",
     period: "Feb 2026 — Present",
@@ -68,6 +74,8 @@ export const experience = [
     tags: ["Unreal Engine 5", "C++", "Combat", "VFX / SFX", "PS5"],
   },
   {
+    icon: Trophy,
+    tone: "orange",
     role: "Smart India Hackathon 2024 — Finalist",
     company: "Interactive Skill Enhancer (VR)",
     period: "2024",
@@ -77,6 +85,8 @@ export const experience = [
     tags: ["Unity", "C#", "VR"],
   },
   {
+    icon: BookOpen,
+    tone: "green",
     role: "Gameplay Systems — Self-Driven Study",
     company: "Personal R&D",
     period: "2022 — Present",
@@ -126,7 +136,8 @@ export const featuredGame = {
 export const projects = [
   {
     id: "img_rpg",
-    icon: FaGamepad,
+    icon: Swords,
+    tone: "violet",
     title: "Top-Down RPG with Gameplay Ability System",
     image: img_rpg,
     description:
@@ -152,7 +163,8 @@ export const projects = [
   },
   {
     id: "img1",
-    icon: FaDesktop,
+    icon: Crosshair,
+    tone: "orange",
     title: "Third Person Shooter",
     image: img1,
     description:
@@ -177,7 +189,8 @@ export const projects = [
   },
   {
     id: "img2",
-    icon: FaCode,
+    icon: Zap,
+    tone: "green",
     title: "Obstacle Overrun",
     image: img2,
     description:
@@ -202,7 +215,8 @@ export const projects = [
   },
   {
     id: "img3",
-    icon: FaUnity,
+    icon: Target,
+    tone: "blue",
     title: "Toon Tanks",
     image: img3,
     description:

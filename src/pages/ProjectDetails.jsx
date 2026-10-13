@@ -1,65 +1,86 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  FaArrowLeft,
-  FaCheckCircle,
-  FaLightbulb,
-  FaExclamationTriangle,
-} from "react-icons/fa";
-import { getProject } from "../data/portfolio";
+import { ArrowLeft, ArrowRight, TriangleAlert, Lightbulb } from "lucide-react";
+import { getProject, projects } from "../data/portfolio";
+import { Tile } from "../components/ui";
 import useReveal from "../hooks/useReveal";
+
+function ListPanel({ icon, tone, title, items }) {
+  return (
+    <div className="reveal panel p-6 sm:p-7">
+      <div className="flex items-center gap-3">
+        <Tile icon={icon} tone={tone} small />
+        <h2 className="font-semibold">{title}</h2>
+      </div>
+      <ul className="mt-4 divide-y divide-line">
+        {items.map((item, i) => (
+          <li key={item} className="flex gap-4 py-3 text-sm">
+            <span className="font-mono text-fg-3 tabular-nums">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <span className="text-fg-2">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 function ProjectDetails() {
   const { projectId } = useParams();
   const project = getProject(projectId);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
   }, [projectId]);
 
   useReveal([projectId]);
 
   if (!project) {
     return (
-      <div className="min-h-screen grid place-items-center px-6 text-center pt-24">
+      <div className="min-h-screen grid place-items-center px-6 text-center">
         <div>
-          <h1 className="font-display text-3xl font-bold text-white">
-            Project not found
-          </h1>
-          <Link to="/" className="btn-primary mt-6">
-            <FaArrowLeft size={14} /> Back home
+          <h1 className="text-3xl font-bold">Project not found</h1>
+          <Link to="/" className="btn btn-light mt-6">
+            <ArrowLeft size={15} /> Back home
           </Link>
         </div>
       </div>
     );
   }
 
-  const Icon = project.icon;
+  const index = projects.indexOf(project);
+  const next = projects[(index + 1) % projects.length];
 
   return (
-    <div className="font-body min-h-screen pt-28 pb-20">
-      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
+    <div className="pt-24 sm:pt-28 pb-16">
+      <div className="shell">
         <Link
           to="/"
           state={{ scrollTo: "projects" }}
-          className="reveal inline-flex items-center gap-2 text-sm text-gray-400 hover:text-sky-300 transition-colors mb-8"
+          className="reveal inline-flex items-center gap-2 text-sm font-medium text-fg-2 hover:text-fg transition-colors"
         >
-          <FaArrowLeft size={13} /> Back to projects
+          <ArrowLeft size={15} /> All projects
         </Link>
 
-        {/* Header */}
-        <div className="reveal flex flex-col sm:flex-row sm:items-center gap-4 mb-10">
-          <span className="grid place-items-center w-14 h-14 rounded-2xl glass text-sky-300 shrink-0">
-            <Icon size={26} />
-          </span>
-          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            {project.title}
-          </h1>
+        <div className="reveal mt-6 flex items-start gap-4">
+          <Tile icon={project.icon} tone={project.tone} />
+          <div>
+            <h1 className="text-[clamp(1.9rem,4.5vw,3rem)] font-extrabold tracking-[-0.03em] leading-[1.05]">
+              {project.title}
+            </h1>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {project.technologies.map((t) => (
+                <span key={t} className="chip">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-14">
-          {/* Video */}
-          <div className="reveal card-glow rounded-2xl overflow-hidden aspect-video self-start">
+        <div className="reveal panel p-2 mt-8">
+          <div className="aspect-video rounded-[9px] overflow-hidden bg-black">
             <iframe
               className="w-full h-full"
               src={project.videoUrl}
@@ -69,65 +90,44 @@ function ProjectDetails() {
               allowFullScreen
             />
           </div>
-
-          {/* Info */}
-          <div className="reveal" style={{ transitionDelay: "80ms" }}>
-            <h2 className="section-eyebrow mb-3">// Tech Stack</h2>
-            <div className="flex flex-wrap gap-2.5 mb-8">
-              {project.technologies.map((t) => (
-                <span key={t} className="chip">
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            <h2 className="section-eyebrow mb-3">// Overview</h2>
-            <p className="text-gray-300/90 leading-relaxed">
-              {project.fullDescription}
-            </p>
-          </div>
         </div>
 
-        {/* Challenges / Learnings */}
-        <div className="mt-12 grid md:grid-cols-2 gap-7">
-          <div className="reveal card-glow rounded-2xl p-7">
-            <div className="flex items-center gap-3 mb-5">
-              <span className="grid place-items-center w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400">
-                <FaExclamationTriangle size={16} />
-              </span>
-              <h2 className="font-display text-xl font-semibold text-white">
-                Challenges
-              </h2>
-            </div>
-            <ul className="space-y-3">
-              {project.challenges.map((c, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-gray-300">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="reveal card-glow rounded-2xl p-7" style={{ transitionDelay: "80ms" }}>
-            <div className="flex items-center gap-3 mb-5">
-              <span className="grid place-items-center w-10 h-10 rounded-lg bg-blue-500/10 text-sky-300">
-                <FaLightbulb size={16} />
-              </span>
-              <h2 className="font-display text-xl font-semibold text-white">
-                Learnings
-              </h2>
-            </div>
-            <ul className="space-y-3">
-              {project.learnings.map((l, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-gray-300">
-                  <FaCheckCircle className="text-blue-400 mt-0.5 shrink-0" size={14} />
-                  {l}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="reveal panel p-6 sm:p-8 mt-3">
+          <h2 className="kbd uppercase tracking-wider">Overview</h2>
+          <p className="mt-3 text-fg-2 leading-relaxed max-w-3xl">
+            {project.fullDescription}
+          </p>
         </div>
+
+        <div className="mt-3 grid md:grid-cols-2 gap-3">
+          <ListPanel
+            icon={TriangleAlert}
+            tone="orange"
+            title="Challenges"
+            items={project.challenges}
+          />
+          <ListPanel
+            icon={Lightbulb}
+            tone="green"
+            title="Learnings"
+            items={project.learnings}
+          />
+        </div>
+
+        <Link
+          to={`/projects/${next.id}`}
+          className="reveal group panel panel-hover mt-3 p-4 flex items-center gap-4"
+        >
+          <Tile icon={next.icon} tone={next.tone} small />
+          <span className="min-w-0 flex-grow">
+            <span className="block kbd">Next project</span>
+            <span className="block font-semibold truncate">{next.title}</span>
+          </span>
+          <ArrowRight
+            size={17}
+            className="text-fg-3 group-hover:text-fg group-hover:translate-x-0.5 transition-all"
+          />
+        </Link>
       </div>
     </div>
   );

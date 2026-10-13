@@ -1,98 +1,104 @@
-import { FaLinkedin, FaGithub, FaEnvelope, FaArrowRight } from "react-icons/fa";
+import { useState } from "react";
+import { Mail, Linkedin, Github, FileText, Copy, Check } from "lucide-react";
 import { profile } from "../../data/portfolio";
+import { Tile } from "../ui";
+
+const LINKS = [
+  {
+    icon: Mail,
+    tone: "blue",
+    label: "Email",
+    value: profile.socials.email,
+    href: `mailto:${profile.socials.email}`,
+  },
+  {
+    icon: Linkedin,
+    tone: "violet",
+    label: "LinkedIn",
+    value: "in/iamashishsakthi",
+    href: profile.socials.linkedin,
+  },
+  {
+    icon: Github,
+    tone: "neutral",
+    label: "GitHub",
+    value: "Ashish-Sakthi",
+    href: profile.socials.github,
+  },
+  {
+    icon: FileText,
+    tone: "green",
+    label: "Resume",
+    value: "View on Google Drive",
+    href: profile.resumeUrl,
+  },
+];
 
 export default function Contact() {
-  const links = [
-    {
-      icon: FaEnvelope,
-      label: "Email",
-      value: profile.socials.email,
-      href: `mailto:${profile.socials.email}`,
-    },
-    {
-      icon: FaLinkedin,
-      label: "LinkedIn",
-      value: "in/iamashishsakthi",
-      href: profile.socials.linkedin,
-    },
-    {
-      icon: FaGithub,
-      label: "GitHub",
-      value: "Ashish-Sakthi",
-      href: profile.socials.github,
-    },
-  ];
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.socials.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1400);
+    } catch {
+      /* clipboard unavailable — ignore */
+    }
+  };
 
   return (
-    <section id="contact" className="relative pt-24 sm:pt-28 pb-12">
-      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-16">
-        <div className="reveal card-glow rounded-3xl overflow-hidden">
-          {/* thin top accent hairline instead of a loud glow */}
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
-
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 p-8 sm:p-12 lg:p-14 items-center">
-            {/* left — pitch */}
+    <section id="contact" className="pt-12 sm:pt-14 pb-10">
+      <div className="shell">
+        <div className="reveal panel p-6 sm:p-10">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
-              <p className="section-eyebrow mb-4">// Get in touch</p>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.05]">
-                Let's build something{" "}
-                <span className="gradient-text">unforgettable</span>
+              <h2 className="text-[clamp(2rem,4.5vw,3rem)] font-extrabold tracking-[-0.03em] leading-[1.05]">
+                Let's build something together.
               </h2>
-              <p className="mt-5 text-gray-400 max-w-md">
+              <p className="mt-3 text-fg-2 max-w-lg">
                 Open to gameplay programming roles, collaborations and
                 interesting Unreal Engine challenges. I usually reply within a
                 day.
               </p>
-              <a
-                href={`mailto:${profile.socials.email}`}
-                className="btn-primary mt-8"
-              >
-                Say hello
-                <FaArrowRight size={14} />
+            </div>
+            <div className="flex gap-2 shrink-0">
+              <a href={`mailto:${profile.socials.email}`} className="btn btn-light">
+                <Mail size={15} /> Say hello
               </a>
+              <button onClick={copyEmail} className="btn btn-quiet">
+                {copied ? <Check size={15} /> : <Copy size={15} />}
+                {copied ? "Copied" : "Copy email"}
+              </button>
             </div>
+          </div>
 
-            {/* right — contact rows */}
-            <div className="flex flex-col divide-y divide-white/8 border border-white/10 rounded-2xl overflow-hidden bg-white/[0.015]">
-              {links.map((l) => {
-                const Icon = l.icon;
-                return (
-                  <a
-                    key={l.label}
-                    href={l.href}
-                    target={l.href.startsWith("mailto") ? undefined : "_blank"}
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-4 px-5 py-5 hover:bg-blue-400/[0.05] transition-colors"
-                  >
-                    <span className="grid place-items-center w-11 h-11 rounded-xl border border-white/10 bg-white/5 text-sky-300 group-hover:border-blue-400/40 transition-colors">
-                      <Icon size={17} />
-                    </span>
-                    <span className="min-w-0 flex-grow">
-                      <span className="block text-xs text-gray-500">
-                        {l.label}
-                      </span>
-                      <span className="block text-sm text-gray-200 truncate">
-                        {l.value}
-                      </span>
-                    </span>
-                    <FaArrowRight
-                      size={13}
-                      className="text-gray-600 group-hover:text-sky-300 group-hover:translate-x-1 transition-all"
-                    />
-                  </a>
-                );
-              })}
-            </div>
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {LINKS.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target={l.href.startsWith("mailto") ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                className="well panel-hover p-4 flex items-center gap-3.5 min-w-0"
+              >
+                <Tile icon={l.icon} tone={l.tone} small />
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold">{l.label}</span>
+                  <span className="block text-xs text-fg-2 truncate">
+                    {l.value}
+                  </span>
+                </span>
+              </a>
+            ))}
           </div>
         </div>
 
-        <footer className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500">
-          <span className="font-brand tracking-widest text-gray-400">
-            ASHISH<span className="text-blue-400">.</span>SAKTHI
-          </span>
+        <footer className="mt-10 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-fg-3">
           <span>
-            © {new Date().getFullYear()} {profile.name}. All rights reserved.
+            © {new Date().getFullYear()} {profile.name}
           </span>
+          <span>Built with React &amp; Tailwind</span>
         </footer>
       </div>
     </section>
