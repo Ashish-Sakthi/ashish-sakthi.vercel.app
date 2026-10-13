@@ -1,27 +1,25 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, TriangleAlert, Lightbulb } from "lucide-react";
 import { getProject, projects } from "../data/portfolio";
-import { Tile } from "../components/ui";
 import useReveal from "../hooks/useReveal";
 
-function ListPanel({ icon, tone, title, items }) {
+function NumberedList({ title, items }) {
   return (
-    <div className="reveal panel p-6 sm:p-7">
-      <div className="flex items-center gap-3">
-        <Tile icon={icon} tone={tone} small />
-        <h2 className="font-semibold">{title}</h2>
-      </div>
-      <ul className="mt-4 divide-y divide-line">
+    <div className="reveal">
+      <h2 className="label mb-3">{title}</h2>
+      <ol>
         {items.map((item, i) => (
-          <li key={item} className="flex gap-4 py-3 text-sm">
-            <span className="font-mono text-fg-3 tabular-nums">
+          <li
+            key={item}
+            className="grid grid-cols-[2.25rem_1fr] py-3 border-t border-line text-[15px] leading-snug"
+          >
+            <span className="font-mono text-xs text-fg-3 pt-0.5 tabular-nums">
               {String(i + 1).padStart(2, "0")}
             </span>
             <span className="text-fg-2">{item}</span>
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 }
@@ -38,13 +36,12 @@ function ProjectDetails() {
 
   if (!project) {
     return (
-      <div className="min-h-screen grid place-items-center px-6 text-center">
-        <div>
-          <h1 className="text-3xl font-bold">Project not found</h1>
-          <Link to="/" className="btn btn-light mt-6">
-            <ArrowLeft size={15} /> Back home
-          </Link>
-        </div>
+      <div className="min-h-screen shell flex flex-col justify-center">
+        <p className="label">Error 404</p>
+        <h1 className="mt-3 text-6xl font-medium tracking-[-0.05em]">Not found.</h1>
+        <Link to="/" className="mt-8 label !text-fg">
+          ← Back home
+        </Link>
       </div>
     );
   }
@@ -53,83 +50,67 @@ function ProjectDetails() {
   const next = projects[(index + 1) % projects.length];
 
   return (
-    <div className="pt-24 sm:pt-28 pb-16">
+    <article className="pt-28 sm:pt-36">
       <div className="shell">
-        <Link
-          to="/"
-          state={{ scrollTo: "projects" }}
-          className="reveal inline-flex items-center gap-2 text-sm font-medium text-fg-2 hover:text-fg transition-colors"
-        >
-          <ArrowLeft size={15} /> All projects
-        </Link>
-
-        <div className="reveal mt-6 flex items-start gap-4">
-          <Tile icon={project.icon} tone={project.tone} />
-          <div>
-            <h1 className="text-[clamp(1.9rem,4.5vw,3rem)] font-extrabold tracking-[-0.03em] leading-[1.05]">
-              {project.title}
-            </h1>
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {project.technologies.map((t) => (
-                <span key={t} className="chip">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
+        <div className="reveal border-t border-line pt-4 grid grid-cols-12 gap-x-6 label">
+          <Link
+            to="/"
+            state={{ scrollTo: "projects" }}
+            className="col-span-6 md:col-span-3 !text-fg-2 hover:!text-fg transition-colors"
+          >
+            ← All work
+          </Link>
+          <span className="col-span-6 md:col-span-6 text-right md:text-left">
+            Case study {String(index + 1).padStart(2, "0")} /{" "}
+            {String(projects.length).padStart(2, "0")}
+          </span>
         </div>
 
-        <div className="reveal panel p-2 mt-8">
-          <div className="aspect-video rounded-[9px] overflow-hidden bg-black">
-            <iframe
-              className="w-full h-full"
-              src={project.videoUrl}
-              title={`${project.title} video`}
-              frameBorder="0"
-              allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+        <h1 className="reveal mt-12 font-medium tracking-[-0.055em] leading-[0.88] text-[clamp(2.75rem,8vw,8rem)] -ml-[0.03em] max-w-[14ch]">
+          {project.title}
+        </h1>
+        <p className="reveal mt-8 label !text-fg-2">
+          {project.technologies.join(" / ")}
+        </p>
+
+        <div className="reveal mt-12 aspect-video overflow-hidden rounded-[3px] bg-black">
+          <iframe
+            className="w-full h-full"
+            src={project.videoUrl}
+            title={`${project.title} video`}
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
 
-        <div className="reveal panel p-6 sm:p-8 mt-3">
-          <h2 className="kbd uppercase tracking-wider">Overview</h2>
-          <p className="mt-3 text-fg-2 leading-relaxed max-w-3xl">
+        <div className="mt-16 grid grid-cols-12 gap-x-6 gap-y-12">
+          <div className="reveal col-span-12 md:col-span-3">
+            <h2 className="label mb-3">Overview</h2>
+          </div>
+          <p className="reveal col-span-12 md:col-span-9 -mt-10 md:mt-0 text-[clamp(1.25rem,2.2vw,1.9rem)] leading-[1.25] tracking-[-0.02em] text-fg-2">
             {project.fullDescription}
           </p>
-        </div>
 
-        <div className="mt-3 grid md:grid-cols-2 gap-3">
-          <ListPanel
-            icon={TriangleAlert}
-            tone="orange"
-            title="Challenges"
-            items={project.challenges}
-          />
-          <ListPanel
-            icon={Lightbulb}
-            tone="green"
-            title="Learnings"
-            items={project.learnings}
-          />
+          <div className="col-span-12 md:col-start-4 md:col-span-4">
+            <NumberedList title="Challenges" items={project.challenges} />
+          </div>
+          <div className="col-span-12 md:col-span-5">
+            <NumberedList title="Learnings" items={project.learnings} />
+          </div>
         </div>
 
         <Link
           to={`/projects/${next.id}`}
-          className="reveal group panel panel-hover mt-3 p-4 flex items-center gap-4"
+          className="reveal group mt-28 sm:mt-40 mb-16 block border-t border-line pt-4"
         >
-          <Tile icon={next.icon} tone={next.tone} small />
-          <span className="min-w-0 flex-grow">
-            <span className="block kbd">Next project</span>
-            <span className="block font-semibold truncate">{next.title}</span>
+          <span className="label">Next case study ↗</span>
+          <span className="block mt-6 text-[clamp(2.5rem,8vw,8rem)] font-medium tracking-[-0.055em] leading-[0.9] text-fg-3 transition-colors duration-500 group-hover:text-fg">
+            {next.name}
           </span>
-          <ArrowRight
-            size={17}
-            className="text-fg-3 group-hover:text-fg group-hover:translate-x-0.5 transition-all"
-          />
         </Link>
       </div>
-    </div>
+    </article>
   );
 }
 

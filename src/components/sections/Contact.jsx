@@ -1,37 +1,13 @@
 import { useState } from "react";
-import { Mail, Linkedin, Github, FileText, Copy, Check } from "lucide-react";
 import { profile } from "../../data/portfolio";
-import { Tile } from "../ui";
+import { scrollToId } from "../../lib/scroll";
+import { SectionHead } from "../ui";
+import Scramble from "../Scramble";
 
-const LINKS = [
-  {
-    icon: Mail,
-    tone: "blue",
-    label: "Email",
-    value: profile.socials.email,
-    href: `mailto:${profile.socials.email}`,
-  },
-  {
-    icon: Linkedin,
-    tone: "violet",
-    label: "LinkedIn",
-    value: "in/iamashishsakthi",
-    href: profile.socials.linkedin,
-  },
-  {
-    icon: Github,
-    tone: "neutral",
-    label: "GitHub",
-    value: "Ashish-Sakthi",
-    href: profile.socials.github,
-  },
-  {
-    icon: FileText,
-    tone: "green",
-    label: "Resume",
-    value: "View on Google Drive",
-    href: profile.resumeUrl,
-  },
+const SOCIALS = [
+  { label: "LinkedIn", href: profile.socials.linkedin },
+  { label: "GitHub", href: profile.socials.github },
+  { label: "Resume", href: profile.resumeUrl },
 ];
 
 export default function Contact() {
@@ -41,64 +17,64 @@ export default function Contact() {
     try {
       await navigator.clipboard.writeText(profile.socials.email);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1400);
+      setTimeout(() => setCopied(false), 1600);
     } catch {
-      /* clipboard unavailable — ignore */
+      /* clipboard unavailable — the mailto link still works */
     }
   };
 
   return (
-    <section id="contact" className="pt-12 sm:pt-14 pb-10">
+    <section id="contact" className="pt-28 sm:pt-40">
       <div className="shell">
-        <div className="reveal panel p-6 sm:p-10">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <div>
-              <h2 className="text-[clamp(2rem,4.5vw,3rem)] font-extrabold tracking-[-0.03em] leading-[1.05]">
-                Let's build something together.
-              </h2>
-              <p className="mt-3 text-fg-2 max-w-lg">
-                Open to gameplay programming roles, collaborations and
-                interesting Unreal Engine challenges. I usually reply within a
-                day.
-              </p>
-            </div>
-            <div className="flex gap-2 shrink-0">
-              <a href={`mailto:${profile.socials.email}`} className="btn btn-light">
-                <Mail size={15} /> Say hello
-              </a>
-              <button onClick={copyEmail} className="btn btn-quiet">
-                {copied ? <Check size={15} /> : <Copy size={15} />}
-                {copied ? "Copied" : "Copy email"}
-              </button>
-            </div>
-          </div>
+        <SectionHead index="05" title="Contact" note="Replies within a day" />
 
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {LINKS.map((l) => (
+        <h2 className="reveal font-medium tracking-[-0.055em] leading-[0.86] text-[clamp(3rem,10.5vw,10.5rem)] -ml-[0.04em]">
+          Let's build
+          <br />
+          <span className="text-fg-3">something</span> hard.
+        </h2>
+
+        <div className="reveal mt-14 grid grid-cols-12 gap-x-6 gap-y-8 items-end">
+          <div className="col-span-12 md:col-span-9">
+            <span className="label block mb-3">Email</span>
+            <a
+              href={`mailto:${profile.socials.email}`}
+              className="text-[clamp(1.35rem,3.6vw,3.25rem)] tracking-[-0.03em] leading-none break-all"
+            >
+              <span className="link">{profile.socials.email}</span>
+            </a>
+          </div>
+          <button
+            onClick={copyEmail}
+            className="col-span-12 md:col-span-3 md:justify-self-end label !text-fg hover:!text-fg-2 transition-colors"
+          >
+            [ <Scramble key={String(copied)} text={copied ? "Copied" : "Copy email"} /> ]
+          </button>
+        </div>
+
+        <footer className="mt-28 sm:mt-40 border-t border-line pt-4 pb-8 grid grid-cols-12 gap-x-6 gap-y-3 label">
+          <span className="col-span-12 md:col-span-3">
+            © {new Date().getFullYear()} {profile.name}
+          </span>
+          <div className="col-span-12 md:col-span-6 flex gap-6">
+            {SOCIALS.map((s) => (
               <a
-                key={l.label}
-                href={l.href}
-                target={l.href.startsWith("mailto") ? undefined : "_blank"}
+                key={s.label}
+                href={s.href}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="well panel-hover p-4 flex items-center gap-3.5 min-w-0"
+                className="!text-fg-2 hover:!text-fg transition-colors"
               >
-                <Tile icon={l.icon} tone={l.tone} small />
-                <span className="min-w-0">
-                  <span className="block text-sm font-semibold">{l.label}</span>
-                  <span className="block text-xs text-fg-2 truncate">
-                    {l.value}
-                  </span>
-                </span>
+                <Scramble text={`${s.label} ↗`} hover />
               </a>
             ))}
           </div>
-        </div>
-
-        <footer className="mt-10 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-fg-3">
-          <span>
-            © {new Date().getFullYear()} {profile.name}
-          </span>
-          <span>Built with React &amp; Tailwind</span>
+          <button
+            onClick={() => scrollToId("top")}
+            className="col-span-12 md:col-span-3 md:justify-self-end hover:!text-fg transition-colors text-left"
+          >
+            Back to top ↑
+          </button>
         </footer>
       </div>
     </section>

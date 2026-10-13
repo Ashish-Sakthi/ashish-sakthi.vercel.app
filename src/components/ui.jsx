@@ -1,25 +1,15 @@
-/** Small shared building blocks for the launcher-style UI. */
+import Scramble from "./Scramble";
 
-/** Glossy coloured icon square. `tone`: blue | green | orange | violet | neutral */
-export function Tile({ icon, tone = "neutral", small = false }) {
-  const Icon = icon;
+/**
+ * Section opener: a full-width hairline with an index, a mono title
+ * that decodes in, and an optional note on the right.
+ */
+export function SectionHead({ index, title, note }) {
   return (
-    <span className={`tile tile-${tone} ${small ? "tile-sm" : ""}`}>
-      <Icon size={small ? 16 : 19} strokeWidth={2.25} />
-    </span>
-  );
-}
-
-export function SectionHeader({ title, subtitle, aside }) {
-  return (
-    <div className="reveal flex flex-wrap items-end justify-between gap-x-6 gap-y-3 mb-6">
-      <div>
-        <h2 className="text-2xl sm:text-[1.75rem] font-bold tracking-tight text-fg">
-          {title}
-        </h2>
-        {subtitle && <p className="mt-1.5 text-sm text-fg-2">{subtitle}</p>}
-      </div>
-      {aside}
+    <div className="reveal border-t border-line pt-4 mb-12 sm:mb-16 grid grid-cols-12 gap-x-6 label">
+      <span className="col-span-2 md:col-span-3 text-fg-2">({index})</span>
+      <Scramble text={title} className="col-span-6 md:col-span-6 text-fg" />
+      {note && <span className="col-span-4 md:col-span-3 text-right">{note}</span>}
     </div>
   );
 }

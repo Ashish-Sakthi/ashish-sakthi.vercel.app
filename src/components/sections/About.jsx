@@ -1,55 +1,68 @@
-import { MapPin } from "lucide-react";
 import { profile, skills } from "../../data/portfolio";
-import { SectionHeader } from "../ui";
+import { SectionHead } from "../ui";
 
 export default function About() {
   return (
-    <section id="about" className="py-12 sm:py-14">
+    <section id="about" className="pt-28 sm:pt-40">
       <div className="shell">
-        <SectionHeader
-          title="About"
-          subtitle="Engineering gameplay that feels right in the hands."
-        />
+        <SectionHead index="01" title="About" note={profile.location} />
 
-        <div className="grid md:grid-cols-[minmax(0,300px)_1fr] gap-3">
-          <figure className="reveal panel p-2 self-start">
-            <img
-              src={profile.avatar}
-              alt={profile.name}
-              className="w-full aspect-[4/5] object-cover rounded-[9px]"
-            />
-            <figcaption className="flex items-center justify-between px-2 pt-3 pb-1.5">
-              <span className="text-sm font-semibold">{profile.name}</span>
-              <span className="kbd inline-flex items-center gap-1">
-                <MapPin size={12} /> {profile.location}
-              </span>
+        <div className="grid grid-cols-12 gap-x-6 gap-y-14">
+          <p className="reveal col-span-12 md:col-start-4 md:col-span-9 text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[1.08] tracking-[-0.03em] font-normal">
+            Gameplay programmer who treats feel as an engineering problem.{" "}
+            <span className="text-fg-3">
+              I architect modular, production-ready systems — so combat lands,
+              enemies think, and designers can iterate without touching C++.
+            </span>
+          </p>
+
+          {/* portrait */}
+          <figure className="reveal col-span-8 sm:col-span-5 md:col-span-3 group">
+            <div className="overflow-hidden rounded-[3px] bg-white/[0.03]">
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                className="w-full aspect-[4/5] object-cover grayscale contrast-[1.08] brightness-90 transition duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-[1.02]"
+              />
+            </div>
+            <figcaption className="label mt-3 flex justify-between">
+              <span>{profile.name}</span>
+              <span>Fig. 02</span>
             </figcaption>
           </figure>
 
-          <div className="reveal panel p-6 sm:p-8 flex flex-col">
-            <div className="space-y-5 max-w-2xl">
-              {profile.bio.map((para, i) => (
-                <p
-                  key={i}
-                  className={`leading-relaxed ${
-                    i === 0 ? "text-[17px] text-fg" : "text-fg-2"
-                  }`}
-                >
-                  {para}
-                </p>
-              ))}
-            </div>
+          {/* bio + spec sheet */}
+          <div className="reveal col-span-12 md:col-start-4 md:col-span-5 space-y-5 text-fg-2 leading-relaxed">
+            {profile.bio.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
 
-            <div className="mt-auto pt-8">
-              <h3 className="kbd uppercase tracking-wider">Toolkit</h3>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {skills.map((s) => (
-                  <span key={s} className="chip !font-medium">
-                    {s}
+            <dl className="pt-6">
+              {profile.facts.map(([k, v]) => (
+                <div
+                  key={k}
+                  className="grid grid-cols-[7rem_1fr] gap-4 py-2.5 border-t border-line text-sm"
+                >
+                  <dt className="label pt-0.5">{k}</dt>
+                  <dd className="text-fg">{v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* toolkit */}
+          <div className="reveal col-span-12 md:col-start-10 md:col-span-3">
+            <h3 className="label mb-3">Toolkit</h3>
+            <ol className="font-mono text-[13px] leading-[1.9]">
+              {skills.map((s, i) => (
+                <li key={s} className="flex gap-3">
+                  <span className="text-fg-3 tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                ))}
-              </div>
-            </div>
+                  <span className="text-fg-2">{s}</span>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </div>

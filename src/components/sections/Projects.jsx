@@ -1,61 +1,110 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
 import { projects } from "../../data/portfolio";
-import { SectionHeader, Tile } from "../ui";
+import { SectionHead } from "../ui";
 
-function ProjectCard({ project }) {
-  return (
-    <Link
-      to={`/projects/${project.id}`}
-      className="reveal group panel panel-hover p-2 flex flex-col"
-    >
-      <div className="relative aspect-[16/9] rounded-[9px] overflow-hidden bg-black">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
-      </div>
-
-      <div className="p-4 pt-5 flex flex-col flex-grow">
-        <div className="flex items-start gap-3.5">
-          <Tile icon={project.icon} tone={project.tone} small />
-          <div className="min-w-0 flex-grow">
-            <h3 className="font-semibold leading-snug">{project.title}</h3>
-            <p className="mt-1.5 text-sm text-fg-2 leading-relaxed">
-              {project.description}
-            </p>
-          </div>
-          <ArrowUpRight
-            size={18}
-            className="shrink-0 text-fg-3 transition-all group-hover:text-fg group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-          />
-        </div>
-        <div className="mt-auto pt-5 flex flex-wrap gap-1.5">
-          {project.technologies.map((t) => (
-            <span key={t} className="tag">
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
-    </Link>
-  );
-}
-
+/**
+ * Work index — big type rows. On fine pointers a frosted preview of the
+ * hovered project trails the cursor with a little spring lag.
+ */
 export default function Projects() {
+  const [active, setActive] = useState(null);
+  const preview = useRef(null);
+
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    const target = { x: 0, y: 0 };
+    const pos = { x: 0, y: 0 };
+    let raf;
+    const onMove = (e) => {
+      target.x = e.clientX;
+      target.y = e.clientY;
+    };
+    const tick = () => {
+      pos.x += (target.x - pos.x) * 0.14;
+      pos.y += (target.y - pos.y) * 0.14;
+      const tilt = Math.max(-8, Math.min(8, (target.x - pos.x) * 0.06));
+      if (preview.current) {
+        preview.current.style.transform = `translate3d(${pos.x + 28}px, ${pos.y - 110}px, 0) rotate(${tilt}deg)`;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener("pointermove", onMove);
+    raf = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
-    <section id="projects" className="py-12 sm:py-14">
+    <section id="projects" className="pt-28 sm:pt-40">
       <div className="shell">
-        <SectionHeader
-          title="Projects"
-          subtitle="Prototypes exploring combat, AI and systems architecture in Unreal Engine."
-          aside={<span className="kbd">{projects.length} projects</span>}
-        />
-        <div className="grid md:grid-cols-2 gap-3">
-          {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
+        <SectionHead index="04" title="Selected work" note={`${projects.length} prototypes`} />
+
+        <ul
+          className="group/list border-b border-line"
+          onMouseLeave={() => setActive(null)}
+        >
+          {projects.map((p, i) => (
+            <li key={p.id} className="reveal border-t border-line first:border-t-0">
+              <Link
+                to={`/projects/${p.id}`}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+                className="group grid grid-cols-12 gap-x-6 gap-y-3 items-baseline py-6 sm:py-8 transition-opacity duration-300 md:group-hover/list:opacity-30 md:hover:!opacity-100"
+              >
+                <span className="col-span-2 md:col-span-3 label tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="col-span-10 md:col-span-6 text-[clamp(1.9rem,5vw,4.5rem)] font-medium tracking-[-0.045em] leading-[0.95] transition-transform duration-500 md:group-hover:translate-x-3">
+                  {p.name}
+                </span>
+                <span className="col-start-3 col-span-10 md:col-start-auto md:col-span-3 md:text-right label leading-relaxed">
+                  {p.technologies.join(" / ")}
+                  <span className="hidden md:inline text-fg"> ↗</span>
+                </span>
+
+                {/* touch screens get an inline thumbnail instead of the cursor preview */}
+                <img
+                  src={p.image}
+                  alt=""
+                  loading="lazy"
+                  className="md:hidden col-start-3 col-span-10 mt-3 w-full aspect-video object-cover rounded-[3px]"
+                />
+              </Link>
+            </li>
           ))}
+        </ul>
+      </div>
+
+      {/* cursor-trailing preview */}
+      <div
+        ref={preview}
+        aria-hidden="true"
+        className={`hidden md:block fixed top-0 left-0 z-30 pointer-events-none transition-opacity duration-300 ${
+          active === null ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <div className="frost rounded-md p-1.5 w-[340px]">
+          <div className="relative aspect-video overflow-hidden rounded-[3px] bg-black">
+            {projects.map((p, i) => (
+              <img
+                key={p.id}
+                src={p.image}
+                alt=""
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                  active === i ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+          </div>
+          <div className="label flex justify-between px-1 pt-1.5 pb-0.5">
+            <span className="!text-fg-2">
+              {active !== null && projects[active].name}
+            </span>
+            <span>View case study</span>
+          </div>
         </div>
       </div>
     </section>

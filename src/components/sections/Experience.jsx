@@ -1,44 +1,43 @@
 import { experience } from "../../data/portfolio";
-import { SectionHeader, Tile } from "../ui";
+import { SectionHead } from "../ui";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-12 sm:py-14">
+    <section id="experience" className="pt-28 sm:pt-40">
       <div className="shell">
-        <SectionHeader
+        <SectionHead
+          index="02"
           title="Experience"
-          subtitle="Roles, projects and recognitions shaping my craft."
+          note={`${experience.length} entries`}
         />
 
-        <div className="space-y-3">
+        <ol className="border-b border-line">
           {experience.map((item) => (
-            <article
+            <li
               key={item.role}
-              className="reveal panel p-5 sm:p-6 grid sm:grid-cols-[auto_1fr] gap-x-5 gap-y-4"
+              className="reveal group grid grid-cols-12 gap-x-6 gap-y-3 py-8 sm:py-10 border-t border-line first:border-t-0"
             >
-              <Tile icon={item.icon} tone={item.tone} />
-              <div className="min-w-0">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 className="text-[17px] font-semibold">{item.role}</h3>
-                  <span className="kbd">{item.period}</span>
-                </div>
-                <div className="text-sm text-fg-2 mt-0.5">
-                  {item.company} · {item.location}
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-fg-2 max-w-3xl">
+              <span className="col-span-12 md:col-span-3 label pt-2 tabular-nums">
+                {item.period}
+              </span>
+
+              <div className="col-span-12 md:col-span-6">
+                <h3 className="text-2xl sm:text-3xl font-medium tracking-[-0.025em] leading-tight transition-transform duration-500 md:group-hover:translate-x-2">
+                  {item.role}
+                </h3>
+                <p className="mt-1 text-fg-3">{item.company}</p>
+                <p className="mt-5 text-fg-2 leading-relaxed max-w-[62ch]">
                   {item.description}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {item.tags.map((t) => (
-                    <span key={t} className="tag">
-                      {t}
-                    </span>
-                  ))}
-                </div>
               </div>
-            </article>
+
+              <div className="col-span-12 md:col-span-3 md:text-right label pt-2 leading-relaxed">
+                <div>{item.location}</div>
+                <div className="mt-1 text-fg-2">{item.tags.join(" / ")}</div>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

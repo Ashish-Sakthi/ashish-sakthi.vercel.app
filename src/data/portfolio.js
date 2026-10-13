@@ -2,16 +2,6 @@
 //  PORTFOLIO CONTENT  —  edit everything here in one place.
 //  Sections that use placeholder data are marked with  ⚑ EDIT ME
 // ============================================================
-import {
-  Swords,
-  Crosshair,
-  Zap,
-  Target,
-  Briefcase,
-  Trophy,
-  BookOpen,
-} from "lucide-react";
-
 import profileImg from "../assets/profile.jpeg";
 import img1 from "../assets/img_third.png";
 import img2 from "../assets/img2.png";
@@ -63,8 +53,6 @@ export const skills = [
 // ---------- EXPERIENCE  ⚑ EDIT ME (replace with your real roles) ----------
 export const experience = [
   {
-    icon: Briefcase,
-    tone: "blue",
     role: "Gameplay Programmer",
     company: "Aeos Games",
     period: "Feb 2026 — Present",
@@ -74,8 +62,6 @@ export const experience = [
     tags: ["Unreal Engine 5", "C++", "Combat", "VFX / SFX", "PS5"],
   },
   {
-    icon: Trophy,
-    tone: "orange",
     role: "Smart India Hackathon 2024 — Finalist",
     company: "Interactive Skill Enhancer (VR)",
     period: "2024",
@@ -85,8 +71,6 @@ export const experience = [
     tags: ["Unity", "C#", "VR"],
   },
   {
-    icon: BookOpen,
-    tone: "green",
     role: "Gameplay Systems — Self-Driven Study",
     company: "Personal R&D",
     period: "2022 — Present",
@@ -136,8 +120,7 @@ export const featuredGame = {
 export const projects = [
   {
     id: "img_rpg",
-    icon: Swords,
-    tone: "violet",
+    name: "Top-Down RPG",
     title: "Top-Down RPG with Gameplay Ability System",
     image: img_rpg,
     description:
@@ -163,8 +146,7 @@ export const projects = [
   },
   {
     id: "img1",
-    icon: Crosshair,
-    tone: "orange",
+    name: "Third Person Shooter",
     title: "Third Person Shooter",
     image: img1,
     description:
@@ -189,8 +171,7 @@ export const projects = [
   },
   {
     id: "img2",
-    icon: Zap,
-    tone: "green",
+    name: "Obstacle Overrun",
     title: "Obstacle Overrun",
     image: img2,
     description:
@@ -215,8 +196,7 @@ export const projects = [
   },
   {
     id: "img3",
-    icon: Target,
-    tone: "blue",
+    name: "Toon Tanks",
     title: "Toon Tanks",
     image: img3,
     description:
