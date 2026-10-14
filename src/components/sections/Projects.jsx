@@ -16,7 +16,7 @@ export default function Projects() {
                 className="group grid grid-cols-12 gap-x-6 gap-y-6 items-center py-8 sm:py-10 transition-opacity duration-300 md:group-hover/list:opacity-35 md:hover:!opacity-100"
               >
                 <div className="col-span-12 md:col-span-7 lg:col-span-8">
-                  <h3 className="text-[clamp(2rem,5vw,4.5rem)] font-medium tracking-[-0.045em] leading-[0.95] transition-transform duration-500 md:group-hover:translate-x-3">
+                  <h3 className="text-[clamp(2rem,5vw,5.5rem)] font-medium tracking-[-0.045em] leading-[0.95] transition-transform duration-500 md:group-hover:translate-x-3">
                     {p.name}
                   </h3>
                   <p className="mt-5 max-w-[52ch] text-fg-2 leading-relaxed">
@@ -32,7 +32,7 @@ export default function Projects() {
                     src={p.image}
                     alt={p.name}
                     loading="lazy"
-                    className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="mono w-full aspect-[16/10] object-cover group-hover:scale-[1.03]"
                   />
                 </div>
               </Link>

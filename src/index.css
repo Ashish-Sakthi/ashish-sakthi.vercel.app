@@ -63,16 +63,12 @@ body::after {
 }
 
 @layer components {
+  /* fluid container: margins scale with the window, so wide screens get used */
   .shell {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1920px;
     margin-inline: auto;
-    padding-inline: 1.25rem;
-  }
-  @media (min-width: 768px) {
-    .shell {
-      padding-inline: 2.5rem;
-    }
+    padding-inline: clamp(1.25rem, 3.5vw, 4.5rem);
   }
 
   /* frosted glass, used sparingly: nav, overlays, floating UI */
@@ -120,6 +116,45 @@ body::after {
   transform: none;
 }
 
+/* word-by-word headline rise (see RevealText) */
+.rw {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  /* room for descenders inside the clip, without changing line height */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.rw-i {
+  display: inline-block;
+  transform: translateY(108%);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-words.in .rw-i {
+  transform: none;
+}
+
+/* page enter on route change */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+.page-in {
+  animation: page-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* monochrome imagery that warms to colour on hover */
+.mono {
+  filter: grayscale(1) contrast(1.05) brightness(0.92);
+  transition: filter 0.7s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .mono,
+.mono:hover {
+  filter: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -128,5 +163,12 @@ body::after {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .rw-i {
+    transform: none;
+    transition: none;
+  }
+  .page-in {
+    animation: none;
   }
 }

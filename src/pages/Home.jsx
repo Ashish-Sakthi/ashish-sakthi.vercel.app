@@ -25,10 +25,10 @@ function Home() {
   return (
     <>
       <Hero />
-      <About />
-      <Experience />
       <FeaturedGame />
       <Projects />
+      <Experience />
+      <About />
       <Contact />
     </>
   );

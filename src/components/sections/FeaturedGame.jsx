@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { featuredGame as game } from "../../data/portfolio";
 import { SectionHead } from "../ui";
+import RevealText from "../RevealText";
 
 function HairlineList({ title, items }) {
   return (
@@ -30,11 +31,11 @@ export default function FeaturedGame() {
       <div className="shell">
         <SectionHead title="Now building" />
 
-        <h2 className="reveal font-medium tracking-[-0.055em] leading-[0.86] text-[clamp(3rem,10.5vw,10.5rem)] -ml-[0.04em]">
-          Unleash
-          <br />
-          <span className="text-fg-3">The</span> Avatar
-        </h2>
+        <RevealText
+          as="h2"
+          className="block font-medium tracking-[-0.055em] leading-[0.86] text-[clamp(3rem,10.5vw,14rem)] -ml-[0.04em]"
+          parts={[["Unleash\n"], ["The ", "text-fg-3"], ["Avatar"]]}
+        />
 
         <div className="reveal mt-8 grid grid-cols-12 gap-x-6 gap-y-2 label">
           {meta.map((m) => (
@@ -64,7 +65,7 @@ export default function FeaturedGame() {
               <img
                 src={game.poster}
                 alt={`${game.title} key art`}
-                className="w-full h-full object-cover brightness-90 transition duration-700 group-hover:brightness-100 group-hover:scale-[1.015]"
+                className="mono w-full h-full object-cover group-hover:scale-[1.015]"
               />
               <span className="absolute inset-0 grid place-items-center">
                 <span className="frost rounded-full h-14 pl-2 pr-6 flex items-center gap-4 transition-transform duration-500 group-hover:scale-105">

@@ -1,5 +1,6 @@
 import { profile, skills } from "../../data/portfolio";
 import { SectionHead } from "../ui";
+import RevealText from "../RevealText";
 
 export default function About() {
   return (
@@ -7,46 +8,51 @@ export default function About() {
       <div className="shell">
         <SectionHead title="About" />
 
-        <p className="reveal max-w-[22ch] sm:max-w-[26ch] text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[1.08] tracking-[-0.03em]">
-          I work on the systems that hold a game together.{" "}
-          <span className="text-fg-3">
-            How you fight and what fights back, what you unlock, the quests
-            that move the story along, and the save that remembers all of it.
-          </span>
-        </p>
+        <div className="grid grid-cols-12 gap-x-6 gap-y-12">
+          <RevealText
+            as="p"
+            className="col-span-12 md:col-start-4 md:col-span-9 md:row-start-1 max-w-[26ch] text-[clamp(1.75rem,3.6vw,4.4rem)] leading-[1.08] tracking-[-0.03em]"
+            stagger={28}
+            parts={[
+              ["I work on the systems that hold a game together. "],
+              [
+                "How you fight and what fights back, what you unlock, the quests that move the story along, and the save that remembers all of it.",
+                "text-fg-3",
+              ],
+            ]}
+          />
 
-        {/* three equal columns; tops share one hairline, bottoms line up */}
-        <div className="mt-16 sm:mt-20 grid grid-cols-12 gap-x-6 gap-y-10 md:items-stretch">
-          <figure className="reveal col-span-12 sm:col-span-6 md:col-span-4 relative aspect-[4/5] md:aspect-auto md:min-h-[24rem] overflow-hidden rounded-[3px] bg-white/[0.03] group">
+          {/* portrait: top aligned with the statement, stays in view while you read */}
+          <figure className="reveal col-span-10 sm:col-span-6 md:col-start-1 md:col-span-3 md:row-start-1 md:row-span-2 md:self-start md:sticky md:top-24 group overflow-hidden rounded-[3px] bg-white/[0.03]">
             <img
               src={profile.avatar}
               alt={profile.name}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              className="mono w-full aspect-[4/5] object-cover group-hover:scale-[1.02]"
             />
           </figure>
 
-          <div className="reveal col-span-12 md:col-span-4 border-t border-line pt-4 space-y-5 text-fg-2 leading-relaxed">
-            {profile.bio.map((para) => (
-              <p key={para.slice(0, 24)}>{para}</p>
-            ))}
-          </div>
-
-          <div className="reveal col-span-12 md:col-span-4 flex flex-col">
-            <dl>
-              {profile.facts.map(([k, v]) => (
-                <div
-                  key={k}
-                  className="grid grid-cols-[6.5rem_1fr] gap-4 py-2.5 border-t border-line text-sm first:pt-4"
-                >
-                  <dt className="label pt-0.5">{k}</dt>
-                  <dd className="text-fg">{v}</dd>
-                </div>
+          <div className="col-span-12 md:col-start-4 md:col-span-9 md:row-start-2 grid grid-cols-9 gap-x-6 gap-y-12">
+            <div className="reveal col-span-9 lg:col-span-5 space-y-5 text-fg-2 leading-relaxed">
+              {profile.bio.map((para) => (
+                <p key={para.slice(0, 24)}>{para}</p>
               ))}
-            </dl>
 
-            <div className="mt-auto pt-10 border-b border-line pb-4">
+              <dl className="pt-6">
+                {profile.facts.map(([k, v]) => (
+                  <div
+                    key={k}
+                    className="grid grid-cols-[7rem_1fr] gap-4 py-2.5 border-t border-line text-sm"
+                  >
+                    <dt className="label pt-0.5">{k}</dt>
+                    <dd className="text-fg">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div className="reveal col-span-9 lg:col-start-7 lg:col-span-3">
               <h3 className="label mb-3">Toolkit</h3>
-              <ul className="grid grid-cols-2 gap-x-4 font-mono text-[12.5px] leading-[1.9] text-fg-2">
+              <ul className="font-mono text-[13px] leading-[1.9] text-fg-2">
                 {skills.map((s) => (
                   <li key={s}>{s}</li>
                 ))}

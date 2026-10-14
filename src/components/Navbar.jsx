@@ -4,16 +4,17 @@ import { profile } from "../data/portfolio";
 import Scramble from "./Scramble";
 
 const NAV_LINKS = [
-  { label: "About", to: "about" },
-  { label: "Experience", to: "experience" },
   { label: "Now building", to: "featured" },
   { label: "Projects", to: "projects" },
+  { label: "Experience", to: "experience" },
+  { label: "About", to: "about" },
   { label: "Contact", to: "contact" },
 ];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,6 +28,26 @@ function Navbar() {
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
+
+  // highlight whichever section sits across the middle of the viewport
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActive(null);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => e.isIntersecting && setActive(e.target.id));
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    const ids = ["top", ...NAV_LINKS.map((l) => l.to)];
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [location.pathname]);
 
   const goToSection = (id) => {
     setOpen(false);
@@ -60,8 +81,16 @@ function Navbar() {
               <button
                 key={l.to}
                 onClick={() => goToSection(l.to)}
-                className="uppercase text-fg-2 hover:text-fg transition-colors"
+                aria-current={active === l.to ? "true" : undefined}
+                className={`relative uppercase transition-colors hover:text-fg ${
+                  active === l.to ? "text-fg" : "text-fg-2"
+                }`}
               >
+                <span
+                  className={`absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 bg-fg transition-opacity duration-300 ${
+                    active === l.to ? "opacity-100" : "opacity-0"
+                  }`}
+                />
                 <Scramble text={l.label} hover />
               </button>
             ))}

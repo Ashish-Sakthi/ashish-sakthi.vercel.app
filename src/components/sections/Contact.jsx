@@ -3,6 +3,7 @@ import { profile } from "../../data/portfolio";
 import { scrollToId } from "../../lib/scroll";
 import { SectionHead } from "../ui";
 import Scramble from "../Scramble";
+import RevealText from "../RevealText";
 
 const SOCIALS = [
   { label: "LinkedIn", href: profile.socials.linkedin },
@@ -28,11 +29,11 @@ export default function Contact() {
       <div className="shell">
         <SectionHead title="Contact" />
 
-        <h2 className="reveal font-medium tracking-[-0.055em] leading-[0.86] text-[clamp(3rem,10.5vw,10.5rem)] -ml-[0.04em]">
-          Working on
-          <br />
-          <span className="text-fg-3">a game?</span>
-        </h2>
+        <RevealText
+          as="h2"
+          className="block font-medium tracking-[-0.055em] leading-[0.86] text-[clamp(3rem,10.5vw,14rem)] -ml-[0.04em]"
+          parts={[["Working on\n"], ["a game?", "text-fg-3"]]}
+        />
         <p className="reveal mt-8 max-w-[44ch] text-lg text-fg-2 leading-relaxed">
           I'm open to gameplay programming roles and Unreal Engine work. Email
           is the quickest way to reach me.
@@ -43,7 +44,7 @@ export default function Contact() {
             <span className="label block mb-3">Email</span>
             <a
               href={`mailto:${profile.socials.email}`}
-              className="text-[clamp(1.35rem,3.6vw,3.25rem)] tracking-[-0.03em] leading-none break-all"
+              className="text-[clamp(1.35rem,3.6vw,4rem)] tracking-[-0.03em] leading-none break-all"
             >
               <span className="link">{profile.socials.email}</span>
             </a>

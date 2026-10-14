@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProject, projects } from "../data/portfolio";
 import useReveal from "../hooks/useReveal";
+import RevealText from "../components/RevealText";
 
 function HairlineList({ title, items }) {
   return (
@@ -59,9 +60,14 @@ function ProjectDetails() {
           </Link>
         </div>
 
-        <h1 className="reveal mt-12 font-medium tracking-[-0.055em] leading-[0.88] text-[clamp(2.75rem,8vw,8rem)] -ml-[0.03em] max-w-[14ch]">
-          {project.title}
-        </h1>
+        <RevealText
+          as="h1"
+          key={project.id}
+          immediate
+          delay={150}
+          text={project.title}
+          className="block mt-12 font-medium tracking-[-0.055em] leading-[0.88] text-[clamp(2.75rem,8vw,11rem)] -ml-[0.03em] max-w-[14ch]"
+        />
         <p className="reveal mt-8 label !text-fg-2">
           {project.technologies.join(" / ")}
         </p>
@@ -81,7 +87,7 @@ function ProjectDetails() {
           <div className="reveal col-span-12 md:col-span-3">
             <h2 className="label mb-3">Overview</h2>
           </div>
-          <p className="reveal col-span-12 md:col-span-9 -mt-10 md:mt-0 text-[clamp(1.25rem,2.2vw,1.9rem)] leading-[1.25] tracking-[-0.02em] text-fg-2">
+          <p className="reveal col-span-12 md:col-span-9 -mt-10 md:mt-0 text-[clamp(1.25rem,2.2vw,2.4rem)] leading-[1.25] tracking-[-0.02em] text-fg-2">
             {project.fullDescription}
           </p>
 
@@ -98,7 +104,7 @@ function ProjectDetails() {
           className="reveal group mt-28 sm:mt-40 mb-16 block border-t border-line pt-4"
         >
           <span className="label">Next project →</span>
-          <span className="block mt-6 text-[clamp(2.5rem,8vw,8rem)] font-medium tracking-[-0.055em] leading-[0.9] text-fg-3 transition-colors duration-500 group-hover:text-fg">
+          <span className="block mt-6 text-[clamp(2.5rem,8vw,11rem)] font-medium tracking-[-0.055em] leading-[0.9] text-fg-3 transition-colors duration-500 group-hover:text-fg">
             {next.name}
           </span>
         </Link>
