@@ -29,10 +29,14 @@ export default function Contact() {
         <SectionHead title="Contact" />
 
         <h2 className="reveal font-medium tracking-[-0.055em] leading-[0.86] text-[clamp(3rem,10.5vw,10.5rem)] -ml-[0.04em]">
-          Let's build
+          Working on
           <br />
-          <span className="text-fg-3">something</span> hard.
+          <span className="text-fg-3">a game?</span>
         </h2>
+        <p className="reveal mt-8 max-w-[44ch] text-lg text-fg-2 leading-relaxed">
+          I'm open to gameplay programming roles and Unreal Engine work. Email
+          is the quickest way to reach me.
+        </p>
 
         <div className="reveal mt-14 grid grid-cols-12 gap-x-6 gap-y-8 items-end">
           <div className="col-span-12 md:col-span-9">

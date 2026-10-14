@@ -1,19 +1,16 @@
 // ============================================================
-//  PORTFOLIO CONTENT  —  edit everything here in one place.
-//  Sections that use placeholder data are marked with  ⚑ EDIT ME
+//  PORTFOLIO CONTENT — all site copy lives here.
 // ============================================================
 import profileImg from "../assets/profile.jpeg";
 import img1 from "../assets/img_third.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.png";
 import img_rpg from "../assets/img_rpg.jpg";
-import world from "../assets/world.jpg";
 
 // ---------- PROFILE ----------
 export const profile = {
   name: "Ashish Sakthi D",
-  role: "Unreal Engine Gameplay Programmer",
-  tagline: "I build modular, AAA-quality gameplay systems in C++.",
+  role: "Gameplay Programmer",
   location: "India",
   avatar: profileImg,
   resumeUrl:
@@ -24,15 +21,14 @@ export const profile = {
     email: "iamashishsakthid@gmail.com",
   },
   bio: [
-    "I'm an Unreal Engine specialist who architects scalable, production-ready systems using SOLID principles and decoupled design. I keep complex mechanics — combat, mission frameworks, AI — performant while giving designers accessible iteration paths.",
-    "I specialize in the Gameplay Ability System (GAS): custom AttributeSets, Execution Calculations, and optimized multiplayer replication. I love bridging sophisticated C++ engineering with tactical, responsive player experiences.",
+    "I'm a gameplay programmer at Aeos Games in Bangalore. Most of my work is Unreal Engine 5 and C++: the combat system, the enemies and bosses you fight, and the VFX and SFX systems behind every hit.",
+    "Before that I taught myself by building prototypes, one system at a time. The Gameplay Ability System, from AttributeSets to Execution Calculations. Behavior Trees and EQS. Replication. The projects further down came out of that.",
   ],
-  // Shown in the hero console ("whoami" tab).
   facts: [
-    ["Role", "Gameplay Programmer @ Aeos Games"],
-    ["Focus", "Combat · Enemy & boss AI · GAS · VFX / SFX"],
-    ["Stack", "Unreal Engine 5 · C++ · Blueprints"],
-    ["Platforms", "PlayStation 5 · PC"],
+    ["Role", "Gameplay Programmer, Aeos Games"],
+    ["Focus", "Combat, enemy and boss AI, VFX and SFX"],
+    ["Stack", "Unreal Engine 5, C++, Blueprints, GAS"],
+    ["Platforms", "PlayStation 5, PC"],
   ],
 };
 
@@ -40,17 +36,15 @@ export const profile = {
 export const skills = [
   "Unreal Engine 5",
   "C++",
-  "Gameplay Ability System",
   "Blueprints",
-  "AI (Behavior Trees · EQS)",
-  "Multiplayer Replication",
-  "Niagara VFX",
-  "Unity / C#",
-  "SOLID Architecture",
-  "Subsystems & Gameplay Tags",
+  "Gameplay Ability System",
+  "Behavior Trees & EQS",
+  "Replication",
+  "Niagara",
+  "Gameplay Tags & Subsystems",
 ];
 
-// ---------- EXPERIENCE  ⚑ EDIT ME (replace with your real roles) ----------
+// ---------- EXPERIENCE ----------
 export const experience = [
   {
     role: "Gameplay Programmer",
@@ -58,90 +52,75 @@ export const experience = [
     period: "Feb 2026 — Present",
     location: "Bangalore",
     description:
-      "Building Unleash The Avatar, a visceral soulslike rooted in Indian mythology. I own the core gameplay: combat, enemy & boss systems, VFX and SFX systems that drive the moment-to-moment experience — plus the PlayStation 5 platform work bringing the game to console, all in Unreal Engine 5 / C++.",
+      "I work on Unleash The Avatar, a soulslike set in Indian mythology. I own the combat system, the enemy and boss systems, and the VFX and SFX systems, and I handle the PlayStation 5 platform work. All of it is Unreal Engine 5 and C++.",
     tags: ["Unreal Engine 5", "C++", "Combat", "VFX / SFX", "PS5"],
   },
   {
-    role: "Smart India Hackathon 2024 — Finalist",
-    company: "Interactive Skill Enhancer (VR)",
-    period: "2024",
-    location: "India",
-    description:
-      "Built a VR assistive tool for children with ASD & ID — gamified environments improving communication, motor and cognitive skills. Recognized for innovation and social impact.",
-    tags: ["Unity", "C#", "VR"],
-  },
-  {
-    role: "Gameplay Systems — Self-Driven Study",
-    company: "Personal R&D",
+    role: "Self-taught Gameplay Programming",
+    company: "Independent",
     period: "2022 — Present",
     location: "Remote",
     description:
-      "Deep-dived into AAA architecture: replication, modular pawn systems, behavior-tree AI and animation-driven combat feedback across multiple shipped prototypes.",
+      "Learning how bigger games are put together by building them small: replication, modular pawns, Behavior Tree AI and animation-driven combat feedback, each in its own prototype.",
     tags: ["C++", "Behavior Trees", "Replication"],
   },
 ];
 
-// ---------- FEATURED GAME / TRAILER ----------
-// The commercial title currently in development at Aeos Games.
+// ---------- FEATURED GAME ----------
 export const featuredGame = {
   title: "Unleash The Avatar",
-  codename: "AEOS GAMES",
   studio: "Aeos Games",
   status: "In Development",
   steamUrl: "https://store.steampowered.com/app/4054220/Unleash_The_Avatar/",
-  // YouTube thumbnail of the trailer — swap for a custom key-art image if you have one.
   poster: "https://img.youtube.com/vi/0CTKnEcjESw/maxresdefault.jpg",
-  cover: world,
-  tagline: "A visceral soulslike, rooted in Indian mythology.",
   trailerUrl: "https://www.youtube.com/embed/0CTKnEcjESw",
   description:
-    "Play as Vikram, investigating a mysterious corruption spreading through Vishwapur — a fictional Indian town brought to life with handcrafted environments and cinematic storytelling. Wield godlike abilities against relentless foes, master precision combat, and unlock transformations that reshape how you fight.",
+    "You play as Vikram, looking into a corruption spreading through Vishwapur, a fictional Indian town. You fight with godlike abilities, switch the chakra between weapon forms, and transform for short bursts to open up new moves. It's a single-player story game built around handcrafted boss fights.",
   features: [
-    "Flashy, high-octane combat with a customizable playstyle",
-    "Chakra weapon shapeshifting and unlockable sword arts",
-    "Temporary transformations that unlock new moves & mobility",
-    "Challenging, handcrafted boss encounters",
-    "Story-rich, cinematic single-player campaign with lore scrolls",
+    "Combat you can shape to your own playstyle",
+    "A chakra that shifts between weapon forms, plus sword arts to unlock",
+    "Short transformations that add new moves and mobility",
+    "Handcrafted boss fights",
+    "A single-player story campaign, with lore scrolls to find",
   ],
-  // What I personally built on the project.
+  // What I built on the project.
   contributions: [
-    "Core combat system — the foundation of the moment-to-moment gameplay",
-    "Enemy & boss systems: AI behaviors, encounters and combat logic",
-    "Core gameplay systems tying mechanics together",
-    "VFX systems for combat feedback and abilities",
+    "The combat system",
+    "Enemy and boss AI, encounters and combat logic",
+    "Core gameplay systems that connect the mechanics",
+    "VFX systems for hits and abilities",
     "SFX systems and audio integration",
-    "PlayStation 5 platform work — bringing the game to console",
+    "PlayStation 5 platform work",
   ],
-  platforms: ["PlayStation 5", "PC (Windows)"],
-  tech: ["Unreal Engine 5", "C++", "GAS", "Combat", "VFX", "SFX", "PS5"],
+  platforms: ["PlayStation 5", "PC"],
 };
 
-// ---------- PROJECTS (also drives the detail page) ----------
+// ---------- PROJECTS (also drives the detail pages) ----------
 export const projects = [
   {
     id: "img_rpg",
     name: "Top-Down RPG",
-    title: "Top-Down RPG with Gameplay Ability System",
+    title: "Top-Down RPG with the Gameplay Ability System",
     image: img_rpg,
     description:
-      "An Unreal Engine 5 RPG prototype built with GAS — attributes, spells, XP, and advanced enemy AI using Behavior Trees and EQS.",
+      "An action RPG built on the Gameplay Ability System, with spells, attributes, levelling and enemies driven by Behavior Trees and EQS.",
     technologies: ["Unreal Engine", "C++", "GAS", "Blueprints", "AI"],
     videoUrl:
       "https://www.youtube.com/embed/videoseries?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD",
     fullDescription:
-      "A scalable RPG prototype built in Unreal Engine 5 (C++) using the Gameplay Ability System (GAS). The game includes core RPG elements such as attributes, spells, XP/level-ups, and advanced enemy AI with EQS and Behavior Trees. Modular UI with HUD elements, spell menus, XP bars, and clean architecture (SOLID principles) makes the system expandable. The project integrates Niagara VFX, real-time combat feedback, and experiments with multiplayer replication for a polished RPG framework.",
+      "Built in Unreal Engine 5 and C++ on top of the Gameplay Ability System. It has attributes, spells, XP and levelling, and enemies that use Behavior Trees and EQS. The UI covers the HUD, spell menus and XP bars, abilities use Niagara effects, and I tested multiplayer replication along the way.",
     challenges: [
-      "Implementing GAS cleanly with attributes and effects",
-      "Designing enemy AI with Behavior Trees and EQS",
-      "Managing multiplayer replication with async tasks",
-      "Integrating VFX, sound notifies, and animation states into combat",
+      "Keeping attributes and effects clean in GAS",
+      "Enemy AI with Behavior Trees and EQS",
+      "Replicating abilities that use async tasks",
+      "Syncing VFX, sound notifies and animation states in combat",
     ],
     learnings: [
-      "Strong understanding of the GAS framework",
-      "AAA-style architecture and SOLID principles in Unreal",
-      "UI design with modular HUD systems",
-      "VFX and animation-driven combat feedback",
-      "Replication and multiplayer considerations in GAS",
+      "How GAS fits together, end to end",
+      "Structuring a bigger Unreal project so it stays easy to extend",
+      "Building modular HUD and menu UI",
+      "Using VFX and animation to make combat readable",
+      "What GAS needs to work in multiplayer",
     ],
   },
   {
@@ -150,23 +129,23 @@ export const projects = [
     title: "Third Person Shooter",
     image: img1,
     description:
-      "A C++-only third-person shooter with enemy AI behaviors — chase, investigate, patrol, and combat using Behavior Trees.",
+      "A shooter written entirely in C++, with enemies that patrol, chase, shoot, and go looking for you when they lose sight of you.",
     technologies: ["Unreal Engine", "C++", "AI"],
     videoUrl:
       "https://www.youtube.com/embed/pj6ksFlDoEA?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD",
     fullDescription:
-      "A third-person shooter prototype built in Unreal Engine 5 entirely with C++. Features include responsive character movement, aiming, and shooting mechanics, supported by robust enemy AI. AI behavior was implemented using Behavior Trees and Blackboards, with logic for detecting, chasing, shooting, investigating last known positions, and returning to patrol when the target is lost.",
+      "Written entirely in C++. The player can move, aim and shoot. Enemies run on Behavior Trees and Blackboards: they spot you, chase you, shoot, check where they last saw you, and go back to patrolling if they can't find you.",
     challenges: [
-      "Understanding Behavior Trees, Blackboards, and AIController flow",
-      "Manually coding sight detection and perception in C++",
-      "Debugging AI logic without Blueprint visuals",
-      "Managing transitions between chase, shoot, investigate and patrol",
+      "Learning how Behavior Trees, Blackboards and the AIController work together",
+      "Writing sight detection by hand in C++",
+      "Debugging AI without Blueprint's visual tools",
+      "Clean transitions between chase, shoot, search and patrol",
     ],
     learnings: [
-      "Solid understanding of Unreal's AI framework (BT + BB + AIController)",
-      "Confidence building modular gameplay systems with C++",
-      "Best practices for AI state transitions",
-      "Improved debugging skills in complex C++ AI logic",
+      "Unreal's AI framework: Behavior Trees, Blackboards, AIController",
+      "Building gameplay systems in C++ alone",
+      "Structuring AI state changes",
+      "Debugging complex C++ AI logic",
     ],
   },
   {
@@ -175,23 +154,23 @@ export const projects = [
     title: "Obstacle Overrun",
     image: img2,
     description:
-      "A Fall Guys–inspired obstacle platformer built in Unreal C++ — moving platforms, rotating hazards, and precision challenges.",
+      "A single-player obstacle course inspired by Fall Guys: moving platforms, spinning bars, traps and timed jumps.",
     technologies: ["Unreal Engine", "C++"],
     videoUrl:
       "https://www.youtube.com/embed/P9FuPjpQez0?list=PL0D7ALWu_wVuvPJTzAJynpzBqBVzx5FFD",
     fullDescription:
-      "Obstacle Overrun is a fast-paced, single-player obstacle course inspired by Fall Guys. Built with Unreal Engine 5 in C++, it challenges players to survive moving platforms, rotating hazards, traps, and precision jumps. Each level ramps up difficulty to test reflexes, timing, and strategy while maintaining smooth controls.",
+      "A single-player obstacle course in the spirit of Fall Guys, built in Unreal Engine 5 with C++. You get past moving platforms, rotating hazards, traps and timed jumps, and each level is harder than the last. The focus was tight movement and obstacles that feel fair.",
     challenges: [
-      "Precise player movement in C++ without Blueprints",
-      "Syncing moving platforms, rotating bars, and timed traps",
-      "Collision edge cases for fast-moving obstacles",
-      "Smooth camera transitions with dynamic levels",
+      "Precise player movement in C++",
+      "Keeping moving platforms, rotating bars and timed traps in sync",
+      "Collision edge cases with fast-moving obstacles",
+      "Camera transitions between levels",
     ],
     learnings: [
-      "Unreal C++ class architecture for gameplay",
-      "Designing responsive obstacle mechanics",
-      "Level pacing and difficulty balance",
-      "Performance-conscious programming for real-time systems",
+      "Structuring gameplay classes in Unreal C++",
+      "Making obstacles readable and fair",
+      "Pacing difficulty across levels",
+      "Keeping per-frame code cheap",
     ],
   },
   {
@@ -200,22 +179,22 @@ export const projects = [
     title: "Toon Tanks",
     image: img3,
     description:
-      "A stylized top-down tank shooter — modular pawn systems, turret AI with timers, projectile combat, and win/lose flow.",
+      "A top-down tank game: drive, aim, and take out turrets that track you and fire back on a timer.",
     technologies: ["Unreal Engine", "C++"],
     videoUrl: "https://www.youtube.com/embed/SPogCMJ0Pag?si=hOVAny3mqpavIfou",
     fullDescription:
-      "Toon Tanks is a stylized arcade shooter built in Unreal Engine 5 with C++. The player controls a cartoon-style tank tasked with eliminating enemy turrets. Each turret features health, auto-firing behavior, and player-tracking logic, creating a reactive battlefield. The project focuses on AI, projectiles, modular pawn systems, and win/lose game state flow.",
+      "An arcade tank game built in Unreal Engine 5 with C++. You drive a tank and destroy enemy turrets. Each turret has health, tracks the player and fires on a timer. Underneath, the tank and turrets share pawn classes, and the game handles projectiles, damage, and the win and lose flow.",
     challenges: [
-      "Creating modular pawn classes for player and turret tanks",
-      "AI logic for turrets with timers and player tracking",
-      "Projectile spawning, collision, and damage application",
-      "Managing win/lose game flow and transitions",
+      "One base pawn class shared by the tank and the turrets",
+      "Turret AI with timers and player tracking",
+      "Spawning projectiles, handling collision and applying damage",
+      "Win and lose conditions, and the transitions between them",
     ],
     learnings: [
-      "Reusable pawn and component-based design",
-      "Timer-based AI logic and perception",
-      "Projectile/collision systems in C++",
-      "GameMode and GameState management",
+      "Component-based, reusable pawn design",
+      "Timer-driven AI",
+      "Projectile and collision systems in C++",
+      "Using GameMode and GameState",
     ],
   },
 ];

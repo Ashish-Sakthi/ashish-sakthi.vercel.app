@@ -9,10 +9,10 @@ export default function About() {
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-14">
           <p className="reveal col-span-12 md:col-start-4 md:col-span-9 text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[1.08] tracking-[-0.03em] font-normal">
-            Gameplay programmer who treats feel as an engineering problem.{" "}
+            I care about the half-second after you press attack.{" "}
             <span className="text-fg-3">
-              I architect modular, production-ready systems — so combat lands,
-              enemies think, and designers can iterate without touching C++.
+              How the hit lands, how the enemy reacts, what the boss does
+              next — that's the part of a game I like building.
             </span>
           </p>
 

@@ -129,7 +129,7 @@ export default function AsciiChakra({ className = "" }) {
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(Hh * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      fs = W < 640 ? 9 : 11;
+      fs = W < 400 ? 8 : 10;
       ctx.font = `${fs}px "Geist Mono", ui-monospace, monospace`;
       cw = ctx.measureText("M").width;
       ch = Math.round(fs * 1.12);
@@ -157,17 +157,10 @@ export default function AsciiChakra({ className = "" }) {
 
     const draw = (time) => {
       const t = time / 1000;
-      // Sit in the empty upper-right, flush with the content edge and
-      // clear of the name below. 1.46 is the blade-tip radius in model units.
-      const mobile = W < 768;
-      const pad = mobile ? 20 : 40;
-      const contentRight = (W + Math.min(W, 1440)) / 2 - pad;
-      const rOuter = mobile
-        ? Math.min(W * 0.34, Hh * 0.2)
-        : Math.min(W * 0.17, Hh * 0.27);
-      const scale = rOuter / 1.46;
-      const cx = mobile ? W * 0.5 : contentRight - rOuter;
-      const cy = mobile ? Hh * 0.3 : Math.max(56 + rOuter, Hh * 0.33);
+      // Centre in the canvas; 1.46 is the blade-tip radius in model units.
+      const scale = (Math.min(W, Hh) * 0.47) / 1.46;
+      const cx = W / 2;
+      const cy = Hh / 2;
       const D = 4.2;
 
       // rotation: spin about own axis (Z), then tilt X, then Y
