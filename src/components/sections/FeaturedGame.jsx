@@ -2,20 +2,17 @@ import { useState } from "react";
 import { featuredGame as game } from "../../data/portfolio";
 import { SectionHead } from "../ui";
 
-function NumberedList({ title, items }) {
+function HairlineList({ title, items }) {
   return (
     <div>
       <h3 className="label mb-3">{title}</h3>
       <ol>
-        {items.map((item, i) => (
+        {items.map((item) => (
           <li
             key={item}
-            className="grid grid-cols-[2.25rem_1fr] py-3 border-t border-line text-[15px] leading-snug"
+            className="py-3 border-t border-line text-[15px] leading-snug text-fg-2"
           >
-            <span className="font-mono text-xs text-fg-3 pt-0.5 tabular-nums">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <span className="text-fg-2">{item}</span>
+            {item}
           </li>
         ))}
       </ol>
@@ -31,7 +28,7 @@ export default function FeaturedGame() {
   return (
     <section id="featured" className="pt-28 sm:pt-40">
       <div className="shell">
-        <SectionHead index="03" title="Now building" note="Commercial title" />
+        <SectionHead title="Now building" />
 
         <h2 className="reveal font-medium tracking-[-0.055em] leading-[0.86] text-[clamp(3rem,10.5vw,10.5rem)] -ml-[0.04em]">
           Unleash
@@ -40,10 +37,9 @@ export default function FeaturedGame() {
         </h2>
 
         <div className="reveal mt-8 grid grid-cols-12 gap-x-6 gap-y-2 label">
-          {meta.map((m, i) => (
-            <span key={m} className="col-span-6 md:col-span-3">
-              <span className="text-fg-3">{String(i + 1).padStart(2, "0")} </span>
-              <span className="text-fg-2">{m}</span>
+          {meta.map((m) => (
+            <span key={m} className="col-span-6 md:col-span-3 text-fg-2">
+              {m}
             </span>
           ))}
         </div>
@@ -80,9 +76,6 @@ export default function FeaturedGame() {
                   <span className="label !text-fg">Play trailer</span>
                 </span>
               </span>
-              <span className="label absolute left-4 bottom-4 !text-fg-2">
-                Fig. 03 — Official trailer
-              </span>
             </button>
           )}
         </div>
@@ -100,10 +93,10 @@ export default function FeaturedGame() {
             </a>
           </div>
           <div className="reveal col-span-12 md:col-start-5 md:col-span-4">
-            <NumberedList title="My contributions" items={game.contributions} />
+            <HairlineList title="My contributions" items={game.contributions} />
           </div>
           <div className="reveal col-span-12 md:col-span-4">
-            <NumberedList title="Game highlights" items={game.features} />
+            <HairlineList title="Game highlights" items={game.features} />
           </div>
         </div>
       </div>

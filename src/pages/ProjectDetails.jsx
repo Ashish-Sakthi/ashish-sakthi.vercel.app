@@ -3,20 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import { getProject, projects } from "../data/portfolio";
 import useReveal from "../hooks/useReveal";
 
-function NumberedList({ title, items }) {
+function HairlineList({ title, items }) {
   return (
     <div className="reveal">
       <h2 className="label mb-3">{title}</h2>
       <ol>
-        {items.map((item, i) => (
+        {items.map((item) => (
           <li
             key={item}
-            className="grid grid-cols-[2.25rem_1fr] py-3 border-t border-line text-[15px] leading-snug"
+            className="py-3 border-t border-line text-[15px] leading-snug text-fg-2"
           >
-            <span className="font-mono text-xs text-fg-3 pt-0.5 tabular-nums">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <span className="text-fg-2">{item}</span>
+            {item}
           </li>
         ))}
       </ol>
@@ -52,18 +49,14 @@ function ProjectDetails() {
   return (
     <article className="pt-28 sm:pt-36">
       <div className="shell">
-        <div className="reveal border-t border-line pt-4 grid grid-cols-12 gap-x-6 label">
+        <div className="reveal border-t border-line pt-4 label">
           <Link
             to="/"
             state={{ scrollTo: "projects" }}
-            className="col-span-6 md:col-span-3 !text-fg-2 hover:!text-fg transition-colors"
+            className="!text-fg-2 hover:!text-fg transition-colors"
           >
             ← All work
           </Link>
-          <span className="col-span-6 md:col-span-6 text-right md:text-left">
-            Case study {String(index + 1).padStart(2, "0")} /{" "}
-            {String(projects.length).padStart(2, "0")}
-          </span>
         </div>
 
         <h1 className="reveal mt-12 font-medium tracking-[-0.055em] leading-[0.88] text-[clamp(2.75rem,8vw,8rem)] -ml-[0.03em] max-w-[14ch]">
@@ -93,10 +86,10 @@ function ProjectDetails() {
           </p>
 
           <div className="col-span-12 md:col-start-4 md:col-span-4">
-            <NumberedList title="Challenges" items={project.challenges} />
+            <HairlineList title="Challenges" items={project.challenges} />
           </div>
           <div className="col-span-12 md:col-span-5">
-            <NumberedList title="Learnings" items={project.learnings} />
+            <HairlineList title="Learnings" items={project.learnings} />
           </div>
         </div>
 

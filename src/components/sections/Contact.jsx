@@ -26,7 +26,7 @@ export default function Contact() {
   return (
     <section id="contact" className="pt-28 sm:pt-40">
       <div className="shell">
-        <SectionHead index="05" title="Contact" note="Replies within a day" />
+        <SectionHead title="Contact" />
 
         <h2 className="reveal font-medium tracking-[-0.055em] leading-[0.86] text-[clamp(3rem,10.5vw,10.5rem)] -ml-[0.04em]">
           Let's build

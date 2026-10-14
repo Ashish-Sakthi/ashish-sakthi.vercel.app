@@ -55,12 +55,7 @@ function Navbar() {
             {profile.name}
           </Link>
 
-          <span className="hidden md:flex col-span-3 items-center gap-2 text-fg-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-fg" />
-            Open to roles
-          </span>
-
-          <div className="hidden md:flex col-span-6 justify-end gap-6">
+          <div className="hidden md:flex col-span-9 justify-end gap-6">
             {NAV_LINKS.map((l) => (
               <button
                 key={l.to}

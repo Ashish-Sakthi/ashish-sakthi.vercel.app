@@ -149,18 +149,25 @@ export default function AsciiChakra({ className = "" }) {
     const state = {
       spin: 0,
       spinVel: 0.9,
-      tiltX: -0.95,
+      tiltX: -0.55,
       tiltY: 0.25,
-      tx: -0.95,
+      tx: -0.55,
       ty: 0.25,
     };
 
     const draw = (time) => {
       const t = time / 1000;
+      // Sit in the empty upper-right, flush with the content edge and
+      // clear of the name below. 1.46 is the blade-tip radius in model units.
       const mobile = W < 768;
-      const cx = mobile ? W * 0.5 : W * 0.66;
-      const cy = mobile ? Hh * 0.36 : Hh * 0.46;
-      const scale = Math.min(W, Hh) * (mobile ? 0.3 : 0.27);
+      const pad = mobile ? 20 : 40;
+      const contentRight = (W + Math.min(W, 1440)) / 2 - pad;
+      const rOuter = mobile
+        ? Math.min(W * 0.34, Hh * 0.2)
+        : Math.min(W * 0.17, Hh * 0.27);
+      const scale = rOuter / 1.46;
+      const cx = mobile ? W * 0.5 : contentRight - rOuter;
+      const cy = mobile ? Hh * 0.3 : Math.max(56 + rOuter, Hh * 0.33);
       const D = 4.2;
 
       // rotation: spin about own axis (Z), then tilt X, then Y
@@ -283,10 +290,10 @@ export default function AsciiChakra({ className = "" }) {
       const mx = (e.clientX - r.left) / r.width - 0.5;
       const my = (e.clientY - r.top) / r.height - 0.5;
       state.ty = 0.25 + mx * 1.1;
-      state.tx = -0.95 + my * 0.9;
+      state.tx = -0.55 + my * 0.9;
     };
     const onLeave = () => {
-      state.tx = -0.95;
+      state.tx = -0.55;
       state.ty = 0.25;
     };
     const onDown = (e) => {

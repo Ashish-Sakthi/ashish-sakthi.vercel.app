@@ -5,11 +5,7 @@ export default function Experience() {
   return (
     <section id="experience" className="pt-28 sm:pt-40">
       <div className="shell">
-        <SectionHead
-          index="02"
-          title="Experience"
-          note={`${experience.length} entries`}
-        />
+        <SectionHead title="Experience" />
 
         <ol className="border-b border-line">
           {experience.map((item) => (

@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="about" className="pt-28 sm:pt-40">
       <div className="shell">
-        <SectionHead index="01" title="About" note={profile.location} />
+        <SectionHead title="About" />
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-14">
           <p className="reveal col-span-12 md:col-start-4 md:col-span-9 text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[1.08] tracking-[-0.03em] font-normal">
@@ -25,10 +25,6 @@ export default function About() {
                 className="w-full aspect-[4/5] object-cover grayscale contrast-[1.08] brightness-90 transition duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-[1.02]"
               />
             </div>
-            <figcaption className="label mt-3 flex justify-between">
-              <span>{profile.name}</span>
-              <span>Fig. 02</span>
-            </figcaption>
           </figure>
 
           {/* bio + spec sheet */}
@@ -54,12 +50,9 @@ export default function About() {
           <div className="reveal col-span-12 md:col-start-10 md:col-span-3">
             <h3 className="label mb-3">Toolkit</h3>
             <ol className="font-mono text-[13px] leading-[1.9]">
-              {skills.map((s, i) => (
-                <li key={s} className="flex gap-3">
-                  <span className="text-fg-3 tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-fg-2">{s}</span>
+              {skills.map((s) => (
+                <li key={s} className="text-fg-2">
+                  {s}
                 </li>
               ))}
             </ol>
