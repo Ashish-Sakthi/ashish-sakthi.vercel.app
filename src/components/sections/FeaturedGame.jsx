@@ -64,7 +64,7 @@ export default function FeaturedGame() {
               <img
                 src={game.poster}
                 alt={`${game.title} key art`}
-                className="w-full h-full object-cover grayscale brightness-75 transition duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-[1.015]"
+                className="w-full h-full object-cover brightness-90 transition duration-700 group-hover:brightness-100 group-hover:scale-[1.015]"
               />
               <span className="absolute inset-0 grid place-items-center">
                 <span className="frost rounded-full h-14 pl-2 pr-6 flex items-center gap-4 transition-transform duration-500 group-hover:scale-105">
@@ -81,8 +81,11 @@ export default function FeaturedGame() {
         </div>
 
         <div className="mt-14 grid grid-cols-12 gap-x-6 gap-y-12">
-          <div className="reveal col-span-12 md:col-span-3">
-            <p className="text-fg-2 leading-relaxed">{game.description}</p>
+          <div className="reveal col-span-12 md:col-span-4">
+            <h3 className="label mb-3">The game</h3>
+            <p className="border-t border-line pt-3 text-[15px] text-fg-2 leading-relaxed">
+              {game.description}
+            </p>
             <a
               href={game.steamUrl}
               target="_blank"
@@ -92,8 +95,8 @@ export default function FeaturedGame() {
               <span className="link">Wishlist on Steam</span> ↗
             </a>
           </div>
-          <div className="reveal col-span-12 md:col-start-5 md:col-span-4">
-            <HairlineList title="My contributions" items={game.contributions} />
+          <div className="reveal col-span-12 md:col-span-4">
+            <HairlineList title="What I work on" items={game.contributions} />
           </div>
           <div className="reveal col-span-12 md:col-span-4">
             <HairlineList title="Game highlights" items={game.features} />

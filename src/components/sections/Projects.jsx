@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <section id="projects" className="pt-28 sm:pt-40">
       <div className="shell">
-        <SectionHead title="Selected work" />
+        <SectionHead title="Projects" />
 
         <ul className="group/list border-b border-line">
           {projects.map((p) => (
@@ -32,7 +32,7 @@ export default function Projects() {
                     src={p.image}
                     alt={p.name}
                     loading="lazy"
-                    className="w-full aspect-[16/10] object-cover grayscale brightness-90 transition duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-[1.03]"
+                    className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
               </Link>

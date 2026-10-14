@@ -34,8 +34,8 @@ function ProjectDetails() {
   if (!project) {
     return (
       <div className="min-h-screen shell flex flex-col justify-center">
-        <p className="label">Error 404</p>
-        <h1 className="mt-3 text-6xl font-medium tracking-[-0.05em]">Not found.</h1>
+        <p className="label">404</p>
+        <h1 className="mt-3 text-6xl font-medium tracking-[-0.05em]">Page not found.</h1>
         <Link to="/" className="mt-8 label !text-fg">
           ← Back home
         </Link>
@@ -55,7 +55,7 @@ function ProjectDetails() {
             state={{ scrollTo: "projects" }}
             className="!text-fg-2 hover:!text-fg transition-colors"
           >
-            ← All work
+            ← All projects
           </Link>
         </div>
 
@@ -89,7 +89,7 @@ function ProjectDetails() {
             <HairlineList title="Challenges" items={project.challenges} />
           </div>
           <div className="col-span-12 md:col-span-5">
-            <HairlineList title="Learnings" items={project.learnings} />
+            <HairlineList title="What I learned" items={project.learnings} />
           </div>
         </div>
 
@@ -97,7 +97,7 @@ function ProjectDetails() {
           to={`/projects/${next.id}`}
           className="reveal group mt-28 sm:mt-40 mb-16 block border-t border-line pt-4"
         >
-          <span className="label">Next case study ↗</span>
+          <span className="label">Next project →</span>
           <span className="block mt-6 text-[clamp(2.5rem,8vw,8rem)] font-medium tracking-[-0.055em] leading-[0.9] text-fg-3 transition-colors duration-500 group-hover:text-fg">
             {next.name}
           </span>

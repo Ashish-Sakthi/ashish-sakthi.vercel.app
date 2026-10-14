@@ -6,8 +6,8 @@ import Scramble from "./Scramble";
 const NAV_LINKS = [
   { label: "About", to: "about" },
   { label: "Experience", to: "experience" },
-  { label: "Featured", to: "featured" },
-  { label: "Work", to: "projects" },
+  { label: "Now building", to: "featured" },
+  { label: "Projects", to: "projects" },
   { label: "Contact", to: "contact" },
 ];
 

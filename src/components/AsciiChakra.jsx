@@ -9,7 +9,9 @@ import { useEffect, useRef } from "react";
  * Pointer position tilts it; a click throws extra spin that decays.
  */
 
-const RAMP = " .':-=+*#%@";
+const RAMP = " .:-+*#%";
+// three grey levels give smooth falloff without the speckle of a hard split
+const TONES = ["#3a3a3a", "#8e8e8e", "#e8e8e8"];
 const TAU = Math.PI * 2;
 
 function buildChakra() {
@@ -120,6 +122,7 @@ export default function AsciiChakra({ className = "" }) {
     let fs = 11;
     let zbuf = new Float32Array(0);
     let lbuf = new Float32Array(0);
+    let sbuf = new Float32Array(0);
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -129,7 +132,7 @@ export default function AsciiChakra({ className = "" }) {
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(Hh * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      fs = W < 400 ? 8 : 10;
+      fs = W < 400 ? 7 : 8;
       ctx.font = `${fs}px "Geist Mono", ui-monospace, monospace`;
       cw = ctx.measureText("M").width;
       ch = Math.round(fs * 1.12);
@@ -137,6 +140,7 @@ export default function AsciiChakra({ className = "" }) {
       rows = Math.ceil(Hh / ch);
       zbuf = new Float32Array(cols * rows);
       lbuf = new Float32Array(cols * rows);
+      sbuf = new Float32Array(cols * rows);
     };
 
     // light from upper-left, slightly in front
@@ -216,37 +220,60 @@ export default function AsciiChakra({ className = "" }) {
         }
       }
 
+      // 3x3 blur over occupied cells only: neighbouring cells often hit
+      // different surfaces (blade face vs edge), which reads as speckle.
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const k = r * cols + c;
+          if (lbuf[k] < 0) {
+            sbuf[k] = -1;
+            continue;
+          }
+          let sum = lbuf[k] * 2;
+          let n = 2;
+          for (let dr = -1; dr <= 1; dr++) {
+            const rr = r + dr;
+            if (rr < 0 || rr >= rows) continue;
+            for (let dc = -1; dc <= 1; dc++) {
+              const cc = c + dc;
+              if ((dr === 0 && dc === 0) || cc < 0 || cc >= cols) continue;
+              const v = lbuf[rr * cols + cc];
+              if (v >= 0) {
+                sum += v;
+                n++;
+              }
+            }
+          }
+          sbuf[k] = sum / n;
+        }
+      }
+
       ctx.clearRect(0, 0, W, Hh);
       ctx.textBaseline = "top";
       const last = RAMP.length - 1;
-      let dim = "";
-      let bright = "";
+      const line = ["", "", ""];
       for (let r = 0; r < rows; r++) {
-        dim = "";
-        bright = "";
+        line[0] = line[1] = line[2] = "";
         let any = false;
         for (let c = 0; c < cols; c++) {
-          const l = lbuf[r * cols + c];
-          if (l < 0) {
-            dim += " ";
-            bright += " ";
+          const l = sbuf[r * cols + c];
+          // empty cells and the faintest hits stay blank, which kills stray speckle
+          if (l < 0.16) {
+            line[0] += " ";
+            line[1] += " ";
+            line[2] += " ";
             continue;
           }
           any = true;
           const g = RAMP[Math.max(1, Math.round(l * last))];
-          if (l > 0.62) {
-            dim += " ";
-            bright += g;
-          } else {
-            dim += g;
-            bright += " ";
-          }
+          const t = l < 0.42 ? 0 : l < 0.7 ? 1 : 2;
+          for (let i = 0; i < 3; i++) line[i] += i === t ? g : " ";
         }
         if (!any) continue;
-        ctx.fillStyle = "#4d4d4d";
-        ctx.fillText(dim, 0, r * ch);
-        ctx.fillStyle = "#d4d4d4";
-        ctx.fillText(bright, 0, r * ch);
+        for (let i = 0; i < 3; i++) {
+          ctx.fillStyle = TONES[i];
+          ctx.fillText(line[i], 0, r * ch);
+        }
       }
     };
 
