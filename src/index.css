@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================================
-   TOKENS — monochrome, one dark surface, no accent colour
+   TOKENS: monochrome, one dark surface, no accent colour
    ============================================================ */
 @theme {
   --font-sans: "Geist", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
@@ -30,7 +30,7 @@ body {
   overflow-x: hidden;
 }
 
-/* film grain — static, barely there */
+/* film grain, static, barely there */
 body::after {
   content: "";
   position: fixed;
@@ -75,7 +75,7 @@ body::after {
     }
   }
 
-  /* frosted glass — used sparingly: nav, overlays, floating UI */
+  /* frosted glass, used sparingly: nav, overlays, floating UI */
   .frost {
     background: rgba(18, 18, 18, 0.55);
     backdrop-filter: blur(18px) saturate(140%);

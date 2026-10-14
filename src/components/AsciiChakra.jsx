@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * A Sudarshana chakra — the spinning weapon from Unleash The Avatar —
+ * A Sudarshana chakra, the spinning weapon from Unleash The Avatar,
  * built as a point cloud and rasterised to ASCII every frame:
  * rotate → perspective-project → z-buffer per character cell →
  * Lambert shade → map brightness to a glyph ramp.

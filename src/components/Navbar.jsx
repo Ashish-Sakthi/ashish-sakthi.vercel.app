@@ -85,7 +85,7 @@ function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile menu — frosted full-screen sheet */}
+      {/* Mobile menu: frosted full-screen sheet */}
       <div
         className={`md:hidden fixed inset-0 z-40 frost !border-0 transition-opacity duration-300 ${
           open ? "opacity-100" : "opacity-0 pointer-events-none"

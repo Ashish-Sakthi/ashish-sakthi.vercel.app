@@ -9,10 +9,11 @@ export default function About() {
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-14">
           <p className="reveal col-span-12 md:col-start-4 md:col-span-9 text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[1.08] tracking-[-0.03em] font-normal">
-            I care about the half-second after you press attack.{" "}
+            I work on the systems that hold a game together.{" "}
             <span className="text-fg-3">
-              How the hit lands, how the enemy reacts, what the boss does
-              next — that's the part of a game I like building.
+              How you fight and what fights back, what you unlock, the quests
+              that move the story along, and the save that remembers all of
+              it.
             </span>
           </p>
 

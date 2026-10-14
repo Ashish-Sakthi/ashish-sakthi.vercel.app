@@ -6,7 +6,7 @@ const reduce =
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
- * Text that decodes from random glyphs — once when scrolled into view,
+ * Text that decodes from random glyphs: once when scrolled into view,
  * and again on hover if `hover` is set. Meant for monospace labels,
  * where the width doesn't jump while it resolves.
  */

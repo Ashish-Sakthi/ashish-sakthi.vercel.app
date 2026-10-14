@@ -1,5 +1,5 @@
 // ============================================================
-//  PORTFOLIO CONTENT — all site copy lives here.
+//  PORTFOLIO CONTENT. All site copy lives here.
 // ============================================================
 import profileImg from "../assets/profile.jpeg";
 import img1 from "../assets/img_third.png";
@@ -21,14 +21,15 @@ export const profile = {
     email: "iamashishsakthid@gmail.com",
   },
   bio: [
-    "I'm a gameplay programmer at Aeos Games in Bangalore. Most of my work is Unreal Engine 5 and C++: the combat system, the enemies and bosses you fight, and the VFX and SFX systems behind every hit.",
+    "I'm a gameplay programmer at Aeos Games in Bangalore, working on Unleash The Avatar. I build systems across the whole game in Unreal Engine 5 and C++: combat and abilities, enemy design and AI, progression, quests and narrative, puzzles, saves, world systems, VFX and audio. I also own the PlayStation 5 port and PC performance.",
     "Before that I taught myself by building prototypes, one system at a time. The Gameplay Ability System, from AttributeSets to Execution Calculations. Behavior Trees and EQS. Replication. The projects further down came out of that.",
   ],
   facts: [
     ["Role", "Gameplay Programmer, Aeos Games"],
-    ["Focus", "Combat, enemy and boss AI, VFX and SFX"],
+    ["Focus", "Gameplay systems across the whole game"],
+    ["Systems", "Combat, GAS, enemies, progression, quests, saves, world"],
     ["Stack", "Unreal Engine 5, C++, Blueprints, GAS"],
-    ["Platforms", "PlayStation 5, PC"],
+    ["Platforms", "PS5 console port, PC performance"],
   ],
 };
 
@@ -49,16 +50,16 @@ export const experience = [
   {
     role: "Gameplay Programmer",
     company: "Aeos Games",
-    period: "Feb 2026 — Present",
+    period: "Since Feb 2026",
     location: "Bangalore",
     description:
-      "I work on Unleash The Avatar, a soulslike set in Indian mythology. I own the combat system, the enemy and boss systems, and the VFX and SFX systems, and I handle the PlayStation 5 platform work. All of it is Unreal Engine 5 and C++.",
-    tags: ["Unreal Engine 5", "C++", "Combat", "VFX / SFX", "PS5"],
+      "I work on Unleash The Avatar, a soulslike set in Indian mythology, and my work spans nearly every gameplay system in it: combat, abilities and GAS, enemy design and AI, bosses, progression, quests and narrative, puzzles, saves, world systems, VFX and audio. I also own the full PlayStation 5 console port and PC performance. All of it is Unreal Engine 5 and C++.",
+    tags: ["Unreal Engine 5", "C++", "GAS", "Enemy design", "Quests", "PS5 port", "Optimization"],
   },
   {
     role: "Self-taught Gameplay Programming",
     company: "Independent",
-    period: "2022 — Present",
+    period: "Since 2022",
     location: "Remote",
     description:
       "Learning how bigger games are put together by building them small: replication, modular pawns, Behavior Tree AI and animation-driven combat feedback, each in its own prototype.",
@@ -85,12 +86,14 @@ export const featuredGame = {
   ],
   // What I built on the project.
   contributions: [
-    "The combat system",
-    "Enemy and boss AI, encounters and combat logic",
-    "Core gameplay systems that connect the mechanics",
-    "VFX systems for hits and abilities",
-    "SFX systems and audio integration",
-    "PlayStation 5 platform work",
+    "Combat, abilities and the Gameplay Ability System",
+    "Enemy design, enemy AI and bosses",
+    "Progression and save systems",
+    "Quests, narrative and puzzles",
+    "World systems",
+    "VFX and audio systems",
+    "The full PlayStation 5 console port",
+    "PC performance and optimization",
   ],
   platforms: ["PlayStation 5", "PC"],
 };
