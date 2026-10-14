@@ -27,7 +27,7 @@ export default function FeaturedGame() {
   const meta = [game.studio, "Soulslike", game.platforms.join(" · "), game.status];
 
   return (
-    <section id="featured" className="pt-28 sm:pt-40">
+    <section id="featured" className="pt-20 sm:pt-40">
       <div className="shell">
         <SectionHead title="Now building" />
 

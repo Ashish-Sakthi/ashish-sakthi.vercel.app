@@ -25,7 +25,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="pt-28 sm:pt-40">
+    <section id="contact" className="pt-20 sm:pt-40">
       <div className="shell">
         <SectionHead title="Contact" />
 
@@ -51,7 +51,7 @@ export default function Contact() {
           </div>
           <button
             onClick={copyEmail}
-            className="col-span-12 md:col-span-3 md:justify-self-end label !text-fg hover:!text-fg-2 transition-colors"
+            className="col-span-12 md:col-span-3 justify-self-start md:justify-self-end label !text-fg hover:!text-fg-2 transition-colors"
           >
             [ <Scramble key={String(copied)} text={copied ? "Copied" : "Copy email"} /> ]
           </button>
@@ -76,7 +76,7 @@ export default function Contact() {
           </div>
           <button
             onClick={() => scrollToId("top")}
-            className="col-span-12 md:col-span-3 md:justify-self-end hover:!text-fg transition-colors text-left"
+            className="col-span-12 md:col-span-3 md:justify-self-end uppercase hover:!text-fg transition-colors text-left"
           >
             Back to top ↑
           </button>

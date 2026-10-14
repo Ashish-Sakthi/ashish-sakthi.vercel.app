@@ -4,11 +4,11 @@ import { SectionHead } from "../ui";
 
 export default function Projects() {
   return (
-    <section id="projects" className="pt-28 sm:pt-40">
+    <section id="projects" className="pt-20 sm:pt-40">
       <div className="shell">
         <SectionHead title="Projects" />
 
-        <ul className="group/list border-b border-line">
+        <ul className="group/list">
           {projects.map((p) => (
             <li key={p.id} className="reveal border-t border-line first:border-t-0">
               <Link

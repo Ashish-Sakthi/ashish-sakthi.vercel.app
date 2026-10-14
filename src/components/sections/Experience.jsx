@@ -3,11 +3,11 @@ import { SectionHead } from "../ui";
 
 export default function Experience() {
   return (
-    <section id="experience" className="pt-28 sm:pt-40">
+    <section id="experience" className="pt-20 sm:pt-40">
       <div className="shell">
         <SectionHead title="Experience" />
 
-        <ol className="border-b border-line">
+        <ol>
           {experience.map((item) => (
             <li
               key={item.role}

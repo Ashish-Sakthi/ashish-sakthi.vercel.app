@@ -88,6 +88,22 @@ body::after {
     color: var(--color-fg-3);
   }
 
+  /* small mono links get a finger-sized hit area without changing their look */
+  .label a,
+  a.label,
+  .label button,
+  button.label {
+    position: relative;
+  }
+  .label a::after,
+  a.label::after,
+  .label button::after,
+  button.label::after {
+    content: "";
+    position: absolute;
+    inset: -14px -8px;
+  }
+
   /* underline that draws in from the left */
   .link {
     background-image: linear-gradient(currentColor, currentColor);

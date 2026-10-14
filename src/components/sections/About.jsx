@@ -4,7 +4,7 @@ import RevealText from "../RevealText";
 
 export default function About() {
   return (
-    <section id="about" className="pt-28 sm:pt-40">
+    <section id="about" className="pt-20 sm:pt-40">
       <div className="shell">
         <SectionHead title="About" />
 

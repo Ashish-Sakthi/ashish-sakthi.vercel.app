@@ -13,9 +13,9 @@ const LINKS = [
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 sm:pt-36 pb-16 sm:pb-24">
+    <section id="top" className="relative overflow-hidden pt-28 sm:pt-36 pb-4 sm:pb-24">
       {/* topographic field behind the type; fades out toward the next section */}
-      <Contours className="[mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
+      <Contours className="[mask-image:linear-gradient(to_bottom,black_55%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
 
       <div className="shell relative">
         <p className="label mb-4 sm:mb-6">
