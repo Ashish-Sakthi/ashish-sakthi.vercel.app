@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ashish Sakthi D | Gameplay Programmer | Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* One A4 page, single reading column so applicant-tracking
+         software parses it top to bottom. Monochrome, like the site. */
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 210mm;
+        height: 297mm;
+      }
+      body {
+        font-family: "Geist", "Segoe UI", Arial, sans-serif;
+        font-size: 8.9pt;
+        line-height: 1.38;
+        color: #1a1a1a;
+        background: #fff;
+        padding: 11mm 15mm 9mm;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .mono {
+        font-family: "Geist Mono", Consolas, monospace;
+        font-size: 7.4pt;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #6b6b6b;
+      }
+
+      /* header */
+      header {
+        padding-bottom: 4mm;
+        border-bottom: 0.6pt solid #1a1a1a;
+      }
+      h1 {
+        font-size: 25pt;
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        word-spacing: 0.12em;
+        line-height: 1;
+      }
+      .role {
+        margin-top: 2mm;
+        font-size: 11pt;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        color: #4a4a4a;
+      }
+      .contact {
+        text-transform: none;
+        letter-spacing: 0.01em;
+        margin-top: 2.8mm;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2mm 5mm;
+      }
+      .contact a,
+      .contact span {
+        color: #1a1a1a;
+      }
+
+      /* sections: label column + content column */
+      section {
+        display: grid;
+        grid-template-columns: 30mm 1fr;
+        gap: 0 6mm;
+        padding: 2.8mm 0 2.4mm;
+        border-bottom: 0.4pt solid #d6d6d6;
+      }
+      section:last-child {
+        border-bottom: 0;
+      }
+      section > h2 {
+        padding-top: 0.9mm;
+      }
+      .summary {
+        font-size: 9.8pt;
+        line-height: 1.45;
+        letter-spacing: -0.005em;
+      }
+
+      .item + .item {
+        margin-top: 2.4mm;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+      }
+      h3 {
+        font-size: 9.8pt;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      h3 .at {
+        font-weight: 400;
+        color: #4a4a4a;
+      }
+      .meta {
+        white-space: nowrap;
+      }
+      .sub {
+        margin-top: 0.4mm;
+        color: #4a4a4a;
+      }
+      ul {
+        margin-top: 0.9mm;
+        list-style: none;
+      }
+      /* hanging-indent bullets drawn inline (no positioning), so PDF text
+         stays in reading order for applicant-tracking software */
+      li {
+        padding-left: 3.6mm;
+        text-indent: -3.6mm;
+      }
+      li + li {
+        margin-top: 0.5mm;
+      }
+      li::before {
+        content: "";
+        display: inline-block;
+        width: 1.3mm;
+        height: 0.5pt;
+        margin-right: 2.3mm;
+        vertical-align: 0.3em;
+        background: #1a1a1a;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 24mm 1fr;
+        gap: 0.5mm 4mm;
+      }
+      .skills dt {
+        font-weight: 500;
+      }
+      .wins .item + .item {
+        margin-top: 1.4mm;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ashish Sakthi D</h1>
+      <p class="role">Gameplay Programmer, Unreal Engine 5 and C++</p>
+      <p class="contact mono">
+        <a href="mailto:iamashishsakthid@gmail.com">iamashishsakthid@gmail.com</a>
+        <a href="tel:+919345047282">+91 93450 47282</a>
+        <span>Bangalore, India</span>
+        <a href="https://ashish-sakthi.vercel.app">ashish-sakthi.vercel.app</a>
+        <a href="https://www.linkedin.com/in/iamashishsakthi/">linkedin.com/in/iamashishsakthi</a>
+        <a href="https://github.com/Ashish-Sakthi">github.com/Ashish-Sakthi</a>
+      </p>
+    </header>
+
+    <section>
+      <h2 class="mono">Profile</h2>
+      <p class="summary">
+        Gameplay programmer at Aeos Games, working across nearly every system in
+        Unleash The Avatar, a soulslike for PlayStation 5 and PC, including the
+        PS5 console port and PC performance. Self-taught in GAS, AI and
+        replication through my own Unreal Engine prototypes.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mono">Experience</h2>
+      <div>
+        <div class="item">
+          <div class="item-head">
+            <h3>Gameplay Programmer <span class="at">· Aeos Games</span></h3>
+            <span class="meta mono">Since Feb 2026 · Bangalore</span>
+          </div>
+          <p class="sub">Unleash The Avatar, a soulslike set in Indian mythology. Unreal Engine 5, C++.</p>
+          <ul>
+            <li>Combat, abilities and the Gameplay Ability System, with the VFX and audio systems behind them.</li>
+            <li>Enemy design, enemy AI and boss encounters.</li>
+            <li>Progression, saves, quests, narrative, puzzles and the world systems that tie them together.</li>
+            <li>Own the full PlayStation 5 console port and PC performance optimization.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <h3>Unreal Engine Developer Intern <span class="at">· Zigoraat Inc.</span></h3>
+            <span class="meta mono">Sep 2025 to Jan 2026 · Remote (US)</span>
+          </div>
+          <p class="sub">Scanning electron microscope simulator. Unreal Engine 5, C++.</p>
+          <ul>
+            <li>Built the simulator's core as modular components, plus a tutorial system on polymorphic state machines for multi-step learning flows.</li>
+            <li>Structured the UI on MVC so interface logic stays decoupled and event-driven.</li>
+            <li>Connected custom hardware controls to the simulator over serial, through Arduino microcontrollers.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <h3>AR/VR Intern <span class="at">· Canorous Technologies</span></h3>
+            <span class="meta mono">Oct 2024 to Nov 2024 · Coimbatore</span>
+          </div>
+          <p class="sub">Built event-driven AR/VR modules in Unity and C#, and debugged existing VR projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="mono">Projects</h2>
+      <div>
+        <div class="item">
+          <div class="item-head">
+            <h3>Modular Mission System <span class="at">· UE5, C++</span></h3>
+            <a class="meta mono" href="https://github.com/Ashish-Sakthi/StoryTemplate">github</a>
+          </div>
+          <ul>
+            <li>Quest framework on Unreal Subsystems and hierarchical Gameplay Tags (main missions, side quests, sub-steps), authored in Data Assets so designers need no code.</li>
+            <li>Linear or non-linear missions started from dialogue, combat or world triggers; a World Event Manager and reward system react on completion.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <h3>Top-Down RPG with the Gameplay Ability System <span class="at">· UE5, C++</span></h3>
+            <a class="meta mono" href="https://ashish-sakthi.vercel.app/projects/img_rpg">case study</a>
+          </div>
+          <ul>
+            <li>Attributes feeding a custom damage pipeline with debuffs, knockback and elemental damage; replicated spells with cooldowns, costs and Gameplay Tags.</li>
+            <li>Melee, ranged and summoner enemies on Behavior Trees and EQS; MVC/MVVM HUD, Niagara effects and save/load.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <h3>Third Person Shooter <span class="at">· UE5, C++</span></h3>
+            <a class="meta mono" href="https://ashish-sakthi.vercel.app/projects/img1">case study</a>
+          </div>
+          <ul>
+            <li>Written entirely in C++. Enemies on Behavior Trees and Blackboards patrol, chase, shoot and search where they last saw the player.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="mono">Skills</h2>
+      <dl class="skills">
+        <dt>Unreal Engine</dt>
+        <dd>C++, Blueprints, Gameplay Ability System, replication, Behavior Trees and EQS, Niagara, UMG, Gameplay Tags, Subsystems</dd>
+        <dt>Platforms</dt>
+        <dd>PlayStation 5 porting, PC performance optimization</dd>
+        <dt>Languages</dt>
+        <dd>C++, C#, Python</dd>
+        <dt>Architecture</dt>
+        <dd>Event-driven design, state machines, MVC/MVVM, design patterns</dd>
+        <dt>Tools</dt>
+        <dd>Git, Visual Studio, Rider</dd>
+      </dl>
+    </section>
+
+    <section class="wins">
+      <h2 class="mono">Awards</h2>
+      <div>
+        <div class="item item-head">
+          <h3>BIT Hacks, Winner <span class="at">· VR maze game</span></h3>
+          <span class="meta mono">2023</span>
+        </div>
+        <div class="item item-head">
+          <h3>Smart India Hackathon, Finalist <span class="at">· VR assistive tool for children with ASD and ID</span></h3>
+          <span class="meta mono">2024</span>
+        </div>
+        <div class="item item-head">
+          <h3>BRICS, Third Place</h3>
+          <span class="meta mono">2023</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="mono">Education</h2>
+      <div class="item-head">
+        <div>
+          <h3>B.Tech, Computer Science and Business Systems</h3>
+          <p class="sub">Bannari Amman Institute of Technology · CGPA 8.2</p>
+        </div>
+        <span class="meta mono">2022 to 2026</span>
+      </div>
+    </section>
+  </body>
+</html>

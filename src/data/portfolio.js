@@ -13,8 +13,8 @@ export const profile = {
   role: "Gameplay Programmer",
   location: "India",
   avatar: profileImg,
-  resumeUrl:
-    "https://drive.google.com/file/d/1Rmjgnp7EkC3slyOajdKl9RC2DJtNNJaY/view?usp=sharing",
+  // built from resume/resume.html by resume/build.mjs
+  resumeUrl: "/Ashish-Sakthi-D-Resume.pdf",
   socials: {
     linkedin: "https://www.linkedin.com/in/iamashishsakthi/",
     github: "https://github.com/Ashish-Sakthi",
