@@ -25,7 +25,7 @@ export default function Projects() {
       pos.y += (target.y - pos.y) * 0.14;
       const tilt = Math.max(-8, Math.min(8, (target.x - pos.x) * 0.06));
       if (preview.current) {
-        preview.current.style.transform = `translate3d(${pos.x + 28}px, ${pos.y - 110}px, 0) rotate(${tilt}deg)`;
+        preview.current.style.transform = `translate3d(${pos.x + 20}px, ${pos.y - 260}px, 0) rotate(${tilt}deg)`;
       }
       raf = requestAnimationFrame(tick);
     };
